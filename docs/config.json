@@ -1,0 +1,11 @@
+{
+    "title": "Daux.io",
+    "tagline": "The Easiest Way To Document Your Project",
+    "author": "Stéphane Goetz",
+    "timezone": "America/New_York",
+    "format": "html",
+    "html": {
+        "theme": "daux-blue",
+        "float": false
+    }
+}

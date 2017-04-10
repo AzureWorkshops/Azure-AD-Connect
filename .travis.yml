@@ -1,0 +1,13 @@
+os:
+  - linux
+sudo: required
+dist: trusty
+language: php
+php:
+  - 5.4
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+  - composer global require justinwalsh/daux.io
+script: 
+  - daux generate
