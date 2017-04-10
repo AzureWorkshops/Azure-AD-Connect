@@ -9,6 +9,6 @@ before_script:
   - composer self-update
   - composer global require justinwalsh/daux.io
 script: 
-  - ls ~/.config/composer/bin
+  - ls ~/.config/composer/vendor/bin
   - ~/.composer/vendor/bin/daux generate
   - ls /home/travis/build/AzureWorkshops/Azure-AD-Connect
