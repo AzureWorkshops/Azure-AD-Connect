@@ -1,11 +1,15 @@
 {
-    "title": "Daux.io",
-    "tagline": "The Easiest Way To Document Your Project",
-    "author": "Stéphane Goetz",
+    "title": "Azure AD Connect",
+    "tagline": "Available to You By Azure Workshops",
+    "author": "Joshua Davis",
     "timezone": "America/New_York",
     "format": "html",
     "html": {
         "theme": "daux-blue",
-        "float": false
+        "float": false,
+        "search": false,
+        "breadcrumbs": true,
+        "date_modified": true,
+        "twitter": ["a11smiles"]
     }
 }
