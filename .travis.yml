@@ -15,3 +15,9 @@ script:
   - git add static && git commit -m "documentation check-in ${TRAVIS_COMMIT}"
   - git ls-remote --heads origin gh-pages | grep gh-pages >/dev/null; if [ "$?" == "0" ]; then git push origin :gh-pages &> /dev/null; fi
   - git subtree push --prefix static origin gh-pages
+notifications:
+  email:
+    recipients:
+      - joshua.davis@microsoft.com
+    on_success: change
+    on_failure: change
