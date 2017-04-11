@@ -13,4 +13,4 @@ script:
   - cd $TRAVIS_BUILD_DIR
   - ~/.config/composer/vendor/bin/daux
   - git add static && git commit -m "documentation check-in ${TRAVIS_COMMIT}"
-  - git push origin `git subtree split --prefix static master`:gh-pages --force
+  - git subtree push --prefix static origin gh-pages 
