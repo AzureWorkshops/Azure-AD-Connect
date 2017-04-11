@@ -4,11 +4,13 @@ In this Azure workshop, you will work with a mock, on-premises Windows 2016 infr
 
 <div class=row>
 <div class=col-third>
+
 #### What You Will Learn
 
 
 </div>
 <div class=col-third>
+
 #### Ideal Audience
 
 
