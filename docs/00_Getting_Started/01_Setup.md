@@ -20,7 +20,7 @@ From a prompt, enter the following command:
 azworkshops --version
 ```
 
-A successful execution of the command should print the current version of the Azure Workshops CLI which can be found in the right column, slightly down the page, of the Node Package Manager [website](https://www.npmjs.com/package/azworkshops-cli). If you do not see a version number, return to the requirements [setup](Requirements) and try reinstalling them.
+A successful execution of the command should print the current version of the Azure Workshops CLI which can be found in the right column, slightly down the page, of the Node Package Manager [website](https://www.npmjs.com/package/azworkshops-cli). If you do not see a version number, return to the requirements [setup](./00_Requirements.md) and try reinstalling them.
 
 If you successfully see the correct version number, you are ready to begin the lab setup.
 
