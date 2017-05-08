@@ -20,7 +20,7 @@ Let's start by connecting to the Azure portal and becoming familiar with navigat
 
   7. Upon clicking the Resource Groups menu item, a _blade_ will open revealing your created resource groups. In this list, you should find the resource group that the CLI created for you.  It begins with **azworkshops_basicAD_**, followed by a datetime stamp. (NOTE: If you do not see this listed in your available resources groups, ensure that in the second dropdown box above, you have the correct subscription selected.  This should be the same subscription you chose earlier in the CLI.)
 
-  8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" style="margin-top:10px;margin-bottom:10px;" /> (NOTE: The datetime stamps for your storage accounts will be different.)
+  8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" style="margin-top:10px;margin-bottom:10px;box-shadown: 2px 2px 2px #999;" /> (NOTE: The datetime stamps for your storage accounts will be different.)
 
 #### Resource Descriptions
 As stated in the previous step and indicated by the preceeding screen clipping, the CLI created 8 different resources in this group for the workshop.  Let's explore these is a little bit more detail.
@@ -34,7 +34,7 @@ Finally, our VMs are connected to each other by utilizing a virtual network. Wit
 #### Viewing Resource Details
 Let's take a moment and view some of the information about the VMs that were created for us.  Let's use the **utility** VM as our example.
 
-  1. Find the **utility** VM <img src="../images/utility_vm.jpg" style="display: inline; margin:0px 5px;"/> and click on it.  This will expand another blade with our details for the virtual machine.
+  1. Find the **utility** VM <img src="../images/utility_vm.jpg" style="display: inline; margin:0px 5px;box-shadown: 2px 2px 2px #999;"/> and click on it.  This will expand another blade with our details for the virtual machine.
 
   2. In the _Overview_ pane, you'll immediately see three sections:
 
@@ -44,6 +44,6 @@ Let's take a moment and view some of the information about the VMs that were cre
 
       3. Metrics - reports various performance metrics regarding your virtual machine (e.g. CPU, network, etc.)
 
-  3. Now, let's look at one more page for some additional details. In the left pane (still on the **utility** blade), approximately half-way down, click on _Properties_ <img src="../images/properties_icon.jpg" style="display: inline; margin:0px 5px;"/>.  On this blade, you will find additional information like the private IP address and specific resource ID.  While there are other places to find this information, this provides a quick-access method.
+  3. Now, let's look at one more page for some additional details. In the left pane (still on the **utility** blade), approximately half-way down, click on _Properties_ <img src="../images/properties_icon.jpg" style="display: inline; margin:0px 5px;box-shadown: 2px 2px 2px #999;"/>.  On this blade, you will find additional information like the private IP address and specific resource ID.  While there are other places to find this information, this provides a quick-access method.
 
 ## Connecting to the Network
