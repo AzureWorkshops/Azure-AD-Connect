@@ -14,4 +14,6 @@ Let's start by connecting to the Azure portal and becoming familiar with navigat
   
   4. After authentication is successful, you will be directed to your _Dashboard_. The dashboard is configurable by adding, removing and resizing _tiles_.  Additionally, you can have multiple dashboards depending on your preferences.  You could have different dashboards for resources dedicated to different functions, lines of business, or for operations.
 
-  5. On the left will be your primary navigational menu. You should see a list of favorited services on the menu with descriptions.  (NOTE: The size of your menu may differ from that of others depending on the number of services you have selected as a favorite.) If all you see are icons (no descriptions) on your menu, your menu is currently collapsed.  Click the "hamburger" ![hamburger](../images/hamburger.jpg) to expand it. 
+  5. On the left will be your primary navigational menu. You should see a list of favorited services on the menu with descriptions.  (NOTE: The size of your menu may differ from that of others depending on the number of services you have selected as a favorite.) If all you see are icons (no descriptions) on your menu, your menu is currently collapsed.  Click the "hamburger" <img src="../images/hamburger.jpg" style="display: inline; margin:0px 5px;"/> to expand it. 
+
+  6. Pretty close to the top of your menu, you should see **Resource Groups** <img src="../images/resource_groups_icon.jpg" style="display: inline; margin:0px 5px;"/>. Click this option.
