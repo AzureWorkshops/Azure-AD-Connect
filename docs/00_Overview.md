@@ -1,0 +1,3 @@
+This workshop centers around helping the user better understand the basics of Azure Active Directory, including Office 365.  By participating in this workshop, users will be learn how to connect and synchronize an on-premises Active Directory with Azure AD and enable single sign-on (SSO).  Participants will also gain insight into configuring filtered synchronization and enabling health monitoring for their on-premises AD.
+
+**Time Estimate:** 3.0 hours
