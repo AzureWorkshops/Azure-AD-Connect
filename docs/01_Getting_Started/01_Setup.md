@@ -6,7 +6,7 @@ First, open a command-line window or terminal prompt. Then, type the following c
 ```bash
 npm install azworkshops-cli -g
 ```
-Running this command will take a few seconds to complete.  But, by doing so will download the Azure Workshops CLI, along with its dependencies, into a directory that is located in a globally accessible path.
+Running this command will take a few seconds to complete.  But, doing so will download the Azure Workshops CLI, along with its dependencies, into a directory that is located in a globally accessible path.
 
 ## Azure Subscription
 As stated in the requirements section, the workshop requires an active Azure subscription.
@@ -15,6 +15,7 @@ As stated in the requirements section, the workshop requires an active Azure sub
 ## Creating the Lab Environment
 >The automated building of the lab environment can take approximately 30 minutes to complete.  It is best to begin this process while you are reviewing the workshop material.
 
+### Verify Installation of the CLI
 From a prompt, enter the following command:
 ```bash
 azworkshops --version
@@ -24,6 +25,7 @@ A successful execution of the command should print the current version of the Az
 
 If you successfully see the correct version number, you are ready to begin the lab setup.
 
+### Build the Environment
 From a prompt, enter the following:
 ```bash
 azworkshops
