@@ -27,6 +27,23 @@ As stated in the previous step and indicated by the preceeding screen clipping, 
 
 The first two items listed are storage accounts - one for the virtual machine disk drives and another to store diagnostic logs from the VMs. Storage accounts must be globally unique across Azure.  Therefore, we've appended datetime stamps to the end of our storage account names in order to prevent collision.
 
-Next, you will see two virtual machines - **dc1** and **utility** - listed.  **dc1** is our Active Directory's domain controller. Each machine requires a network interface card for connectivity.  Additionally, the **utility** VM ahas a public IP assigned to it. Exposing our domain controller via a public IP is a very bad practice.  Therefore, we will remotely connect to our virtual network via our **utility** VM.  All machines in Azure, by default, have connectivity _out_ to the Internet.  But, only VMs that have public IPs can be accessed from the Internet (e.g. outside of the network).
+Next, you will see two virtual machines - **dc1** and **utility** - listed.  **dc1** is our Active Directory's domain controller. Each machine requires a network interface card for connectivity.  Additionally, the **utility** VM has a public IP assigned to it. Exposing our domain controller via a public IP is a very bad practice.  Therefore, we will remotely connect to our virtual network via our **utility** VM.  All machines in Azure, by default, have connectivity _out_ to the Internet.  But, only VMs that have public IPs can be accessed from the Internet (e.g. outside of the network).
 
 Finally, our VMs are connected to each other by utilizing a virtual network. With the exception of storage and a few other resources in Azure, a virtual network is required.
+
+#### Viewing Resource Details
+Let's take a moment and view some of the information about the VMs that were created for us.  Let's use the **utility** VM as our example.
+
+  1. Find the **utility** VM <img src="../images/utility_vm.jpg" style="display: inline; margin:0px 5px;"/> and click on it.  This will expand another blade with our details for the virtual machine.
+
+  2. In the _Overview_ pane, you'll immediately see three sections:
+
+      1. Actions - allows you to perform various actions on the virtual machine (e.g. connect, start, stop, etc.)
+
+      2. Information - displays various information about your virtual machine (e.g. resource group, location, status, IP address, etc.)
+
+      3. Metrics - reports various performance metrics regarding your virtual machine (e.g. CPU, network, etc.)
+
+  3. Now, let's look at one more page for some additional details. In the left pane (still on the **utility** blade), approximately half-way down, click on _Properties_ <img src="../images/properties_icon.jpg" style="display: inline; margin:0px 5px;"/>.  On this blade, you will find additional information like the private IP address and specific resource ID.  While there are other places to find this information, this provides a quick-access method.
+
+## Connecting to the Network
