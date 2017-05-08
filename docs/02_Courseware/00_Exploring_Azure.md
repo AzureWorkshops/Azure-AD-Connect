@@ -60,3 +60,5 @@ We will now remotely connect to our virtual network.  Remember, exposing our dom
   5. If the credentials were entered successfully, you should be remotely connected to the **utility** VM.
 
   6. (Optional) If you'd like, once you are connected to the **utility** VM, you can connect remotely to the Active Directory domain controller ("**dc1**") in the virtual network.  Simply open up Remote Desktop _in the active, remote session_ and use the internal, private IP (e.g. 10.3.1.4) as the address.  Use the same credentials to connect to the domain controller as you did with the **utility** virtual machine.
+
+This completes our simple introduction into navigating through Azure. We'll go into more detail as we work through the rest of the workshop, but this is enough to get us started.
