@@ -15,7 +15,7 @@ As stated in the requirements section, the workshop requires an active Azure sub
 ## Creating the Lab Environment
 >The automated building of the lab environment can take approximately 30 minutes to complete.  It is best to begin this process while you are reviewing the workshop material.
 
-### Verify Installation of the CLI
+#### Verify Installation of the CLI
 From a prompt, enter the following command:
 ```bash
 azworkshops --version
@@ -25,7 +25,7 @@ A successful execution of the command should print the current version of the Az
 
 If you successfully see the correct version number, you are ready to begin the lab setup.
 
-### Build the Environment
+#### Build the Environment
 From a prompt, enter the following:
 ```bash
 azworkshops
