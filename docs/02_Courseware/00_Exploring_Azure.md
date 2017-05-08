@@ -20,4 +20,6 @@ Let's start by connecting to the Azure portal and becoming familiar with navigat
 
   7. Upon clicking the Resource Groups menu item, a _blade_ will open revealing your created resource groups. In this list, you should find the resource group that the CLI created for you.  It begins with **azworkshops_basicAD_**, followed by a datetime stamp. (NOTE: If you do not see this listed in your available resources groups, ensure that in the second dropdown box above, you have the correct subscription selected.  This should be the same subscription you chose earlier in the CLI.)
 
-  8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" /> (NOTE: The datetime stamps for your storage accounts will be different.)
+  8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" style="margin-top:10px;margin-bottom:10px;" /> (NOTE: The datetime stamps for your storage accounts will be different.)
+
+#### Resource Descriptions
