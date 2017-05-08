@@ -23,3 +23,10 @@ Let's start by connecting to the Azure portal and becoming familiar with navigat
   8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" style="margin-top:10px;margin-bottom:10px;" /> (NOTE: The datetime stamps for your storage accounts will be different.)
 
 #### Resource Descriptions
+As stated in the previous step and indicated by the preceeding screen clipping, the CLI created 8 different resources in this group for the workshop.  Let's explore these is a little bit more detail.
+
+The first two items listed are storage accounts - one for the virtual machine disk drives and another to store diagnostic logs from the VMs. Storage accounts must be globally unique across Azure.  Therefore, we've appended datetime stamps to the end of our storage account names in order to prevent collision.
+
+Next, you will see two virtual machines - **dc1** and **utility** - listed.  **dc1** is our Active Directory's domain controller. Each machine requires a network interface card for connectivity.  Additionally, the **utility** VM ahas a public IP assigned to it. Exposing our domain controller via a public IP is a very bad practice.  Therefore, we will remotely connect to our virtual network via our **utility** VM.  All machines in Azure, by default, have connectivity _out_ to the Internet.  But, only VMs that have public IPs can be accessed from the Internet (e.g. outside of the network).
+
+Finally, our VMs are connected to each other by utilizing a virtual network. With the exception of storage and a few other resources in Azure, a virtual network is required.
