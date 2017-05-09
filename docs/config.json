@@ -11,6 +11,17 @@
         "toggle_code": false,
         "breadcrumbs": true,
         "date_modified": true,
-        "twitter": ["a11smiles"]
+        "twitter": [
+            "a11smiles"
+        ]
+    },
+    "ignore": {
+        "files": [
+            "02_Courseware/03_Prepare_Non-Routable_Domain.md",
+            "02_Courseware/04_Installing_Azure_AD_Connect.md",
+            "02_Courseware/05_Configuring_AD_FS.md",
+            "02_Courseware/06_Monitoring_Health.md",
+            "02_Courseware/07_Advanced_Configuration.md"
+        ]
     }
 }
