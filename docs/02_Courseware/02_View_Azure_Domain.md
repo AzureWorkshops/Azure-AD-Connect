@@ -31,4 +31,4 @@ Even though we are using a trial of Office 365 Business Premium for our workshop
 
   5. This will initiate a 30-day trial of Azure AD Premium features. Click _Activate_.
 
-You will need to refresh your Internet browser to see the effects of enabling Azure AD Premium.  Within the Azure Active Directory blades, you may have notice a gray bar stating that some of the features were only available in Azure AD Premium.  Once you refresh your browser and return to Azure Active Directory, you should no longer see the gray bar and, instead, see all features activated.
+You will need to refresh your Internet browser to see the effects of enabling Azure AD Premium.  Within the Azure Active Directory blades, you may have noticed a gray bar stating that some of the features were only available in Azure AD Premium.  Once you refresh your browser and return to Azure Active Directory, you should no longer see the gray bar and, instead, see all features activated.
