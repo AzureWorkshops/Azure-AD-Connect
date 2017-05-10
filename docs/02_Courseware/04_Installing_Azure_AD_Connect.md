@@ -1,7 +1,7 @@
 ## Objective
 We are now finally ready to begin the configuration of our synchronization process.  Upon completion of this step, your virtual datacenter will be sync'ing with Azure AD.
 
-#### Install Azure AD Connect
+## Install Azure AD Connect
 To have our local domain synchronize with Azure AD we need Azure AD Connect.  We will install it on the **ad-connect** virtual machine.
 
   1. As you have previously connected to the **ad-connect** and **utility** VMs already, let's RDP to the **ad-connect** machine once more.
@@ -26,7 +26,7 @@ To have our local domain synchronize with Azure AD we need Azure AD Connect.  We
 
 After a few minutes, you should receive confirmation that the configuration has completed.  It may also give you a couple of house-keeping recommendations.  Go ahead and click **Exit** to exit the installer.
 
-#### Configure Synchronization Filters
+## Configure Synchronization Filters
 We need to create some filters to _only_ synchronize our users who's UPNs have been updated to the "new" domain.
 
 In order to do this, we need to create what's called a "Positive Filter." Basically, we're instructing AD Connect to "only sync these."  Keep in mind that, by default AD Connect will sync _all_ users in our domain (or OU, depending how we have configured the sync scope). So, in order to create a positive filter, we need to create two rules - one that specifies which users to sync; and, another that instructs AD Connect to _not_ sync all of the remaining users.
@@ -35,7 +35,7 @@ Both of our rules are considered _Incoming Sync Rules (ISR)_ because they are de
 
 First, let's begin by opening up the synchronization rules. In the **Start Menu** of the **ad-connect** VM, click on **Sychronization Rules Editor**. You'll see approximately 15-20 default rules.  We're going to add our two rules to the top in order for our rules to take precedence.
 
-##### Users Match Filter
+#### Users Match Filter
 This filter will instruct which users we _do_ want to sync with Azure AD.
 
   1. In the _Synchronization Rules Editor_ click on **Add new rule**.
@@ -72,7 +72,7 @@ This filter will instruct which users we _do_ want to sync with Azure AD.
 
   6. Click **Save**.
 
-##### Users Catch-All Filter
+#### Users Catch-All Filter
 This filter will instruct which users we _do not_ want to sync with Azure AD.
 
   1. In the _Synchronization Rules Editor_ click on **Add new rule**.
@@ -102,7 +102,7 @@ This filter will instruct which users we _do not_ want to sync with Azure AD.
 
 Before you close the _Syncrhonization Rules Editor_, notice that at the bottom of the window, you are able export rules to a PowerShell script. For any custom rules, this should be part of your disaster recovery plan in case the AD Connect synchronization server fails.  You may now close the editor.
 
-#### Enable Password Writeback
+## Enable Password Writeback
 One last thing we want to do is configure the Azure AD Connect tool to writeback password changes to our local Active Directory.  Additionally, remember that, during installation, we elected to not start the synchronization service.  So, we going to do that, as well.
 
   1. On the desktop of your **ad-connect** VM, you should see a new icon for **Azure AD Connect**. Go ahead and open the tool.
@@ -131,7 +131,7 @@ One last thing we want to do is configure the Azure AD Connect tool to writeback
 
   11. Once the configuration has completed, you should receive a confirmation. Click **Exit**.
 
-#### Confirming a Successful Synchronization
+## Confirming a Successful Synchronization
 Give the synchronization service a minute to "spin up" and conduct its first sync. Then, let's head over to our Azure portal to confirm that the synchronization was successful.  Once you've reached your Azure portal, perform the following steps.
 
   1. On the left menu, click on **Azure Active Directory** <img src="../images/azure_ad_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
@@ -154,7 +154,7 @@ We now see from where our users are originating, whether that on-premises (e.g. 
 
 Remember that any changes made to synchronized users (e.g. Windows Server AD) are replicated back down to our local Active Directory.  However cloud users are _not_ synchronized.
 
-#### Completing Password Writeback
+## Completing Password Writeback
 In completing the Azure AD Connect configuration, we enabled password writeback. But, by default, users aren't able to update their passwords in Azure.  We need to enable users to have the ability to update their passwords.
 
   1. While you are still on the _Users and groups_ blade, click on **Password reset** <img src="../images/password_reset_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
@@ -167,7 +167,7 @@ In completing the Azure AD Connect configuration, we enabled password writeback.
 
 You now have our local Active Directory sync'ing with our Azure AD.  
 
-#### Additional Notes
+## Additional Notes
 Interestingly enough, if you log out of Azure and attempt to login with one of the UPNs that was sync'ed (for example, **jim.smith@_&lt;yourcompany&gt;_.onmicrosoft.com** with the default password **Pass@word1234**), Azure will require you to set up a secondary authentication method - phone or email - prior to being able to login.
 
 Also, if you login to your Office 365 trial tenant, you'll see the users from your on-premises Active Directory listed.  All you would need to do at this point is assign them licenses.
