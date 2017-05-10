@@ -22,7 +22,7 @@ This workshop centers around helping the user better understand the basics of Az
 
 #### Ideal Audience
 
-  * CISOs and VPs or Information Security
+  * CISOs and VPs of Information Security
   * CIOs
   * IT Managers
   * Active Directory and Network Admins
