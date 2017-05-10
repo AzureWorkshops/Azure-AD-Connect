@@ -18,8 +18,7 @@
     "ignore": {
         "files": [
             "05_Configuring_AD_FS.md",
-            "06_Monitoring_Health.md",
-            "07_Advanced_Configuration.md"
+            "06_Monitoring_Health.md"
         ]
     }
 }
