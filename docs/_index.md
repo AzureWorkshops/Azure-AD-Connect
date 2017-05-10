@@ -5,7 +5,7 @@ This workshop centers around helping the user better understand the basics of Az
 </p>
 
 <div class="row">
-<div class="span5">
+<div class=col-third>
 
 #### What You Will Learn
 
@@ -17,7 +17,7 @@ This workshop centers around helping the user better understand the basics of Az
   * Azure AD Health
 
 </div>
-<div class="span5">
+<div class=col-third>
 
 #### Ideal Audience
 
