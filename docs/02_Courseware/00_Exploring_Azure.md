@@ -36,7 +36,7 @@ Let's take a moment and view some of the information about the VMs that were cre
 
   1. Find the **utility** VM <img src="../images/utility_vm.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/> and click on it.  This will expand another blade with our details for the virtual machine.
 
-  2. In the _Overview_ pane, you'll immediately see three sections:
+  2. In the **Overview** pane, you'll immediately see three sections:
 
       1. Actions - allows you to perform various actions on the virtual machine (e.g. connect, start, stop, etc.)
 
@@ -44,18 +44,18 @@ Let's take a moment and view some of the information about the VMs that were cre
 
       3. Metrics - reports various performance metrics regarding your virtual machine (e.g. CPU, network, etc.)
 
-  3. Now, let's look at one more page for some additional details. In the left pane (still on the **utility** blade), approximately half-way down, click on _Properties_ <img src="../images/properties_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.  On this blade, you will find additional information like the private IP address and specific resource ID.  While there are other places to find this information, this provides a quick-access method.
+  3. Now, let's look at one more page for some additional details. In the left pane (still on the **utility** blade), approximately half-way down, click on **Properties** <img src="../images/properties_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.  On this blade, you will find additional information like the private IP address and specific resource ID.  While there are other places to find this information, this provides a quick-access method.
 
 ## Connecting to the Network
 We will now remotely connect to our virtual network.  Remember, exposing our domain controllers via a public IP is unsafe and not recommended.  We've, therefore, created a **utility** virtual machine - sometimes known as a _bastion_ server - that will allow us an entrypoint into our network.
 
-  1. Make sure you have the **utility** VM selected and click on _Overview_ <img src="../images/overview_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  1. Make sure you have the **utility** VM selected and click on **Overview** <img src="../images/overview_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
 
-  2. In the _Actions_ section, click _Connect_ <img src="../images/connect_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>. This will download a Remote Desktop (Protocol) profile to your machine.
+  2. In the _Actions_ section, click **Connect** <img src="../images/connect_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>. This will download a Remote Desktop (Protocol) profile to your machine.
 
-  3. Open the RDP profile. (NOTE: You may receive a warning that "The publisher of this remote connection can't be identified." Proceed by clicking on _Connect_.)
+  3. Open the RDP profile. (NOTE: You may receive a warning that "The publisher of this remote connection can't be identified." Proceed by clicking on **Connect**.)
 
-  4. Windows security will prompt you to enter your credentials. Enter the full AD credentials that was reported to you earlier by the CLI (e.g. azurecloud\cloudadmin). Additionally, enter your password. Click OK.
+  4. Windows security will prompt you to enter your credentials. Enter the full AD credentials that was reported to you earlier by the CLI (e.g. azurecloud\cloudadmin). Additionally, enter your password. Click **OK**.
 
   5. If the credentials were entered successfully, you should be remotely connected to the **utility** VM.
 

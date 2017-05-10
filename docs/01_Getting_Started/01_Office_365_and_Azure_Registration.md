@@ -40,17 +40,17 @@ Finally, remember this trial account is only good for 30 days.  While Microsoft 
 ## Azure
 Finally, we need to create a trial Azure subscription.  Believe it or not, we are already using Azure Active Directory because we just set up Office 365.  Office 365 uses Azure AD underneath to manage all of our exchange users.  We simply need to create a subscription so that we can leverage Azure's other offerings.
 
-Direct your browser to [https://azure.microsoft.com/en-us/free/](https://azure.microsoft.com/en-us/free/) and begin by clicking on the green button that reads "Start free".
+Direct your browser to [https://azure.microsoft.com/en-us/free/](https://azure.microsoft.com/en-us/free/) and begin by clicking on the green button that reads **Start free**.
 
-**IMPORTANT:** On the sign-up form page, you should see your new email address that associated with your new Office 365 account.  If not, click on _Sign Out_ and re-authenticate using your newly formed credentials (e.g. username@_yourcompany_.onmicrosoft.com).
+**IMPORTANT:** On the sign-up form page, you should see your new email address that associated with your new Office 365 account.  If not, click on **Sign Out** and re-authenticate using your newly formed credentials (e.g. username@_yourcompany_.onmicrosoft.com).
 
   1. In the first section, complete the form in its entirety. Make sure you use your _real_ email address for the important notifications.
 
   2. In the second section, enter a _real_ mobile phone number to receive a text verification number.  Click send message and re-type the received code.
 
-  3. Enter a valid credit card number. **NOTE:** You will _**not**_ be charged.  This is for verification of identity only in order to comply with federal regulations.  Your account statement may see a temporary hold of $1.00 from Microsoft, but, again, this is for verification only and will "fall off" your account within 2-3 banking days.
+  3. Enter a valid credit card number. **NOTE:** You will _not_ be charged.  This is for verification of identity only in order to comply with federal regulations.  Your account statement may see a temporary hold of $1.00 from Microsoft, but, again, this is for verification only and will "fall off" your account within 2-3 banking days.
 
-  4. Agree to Microsoft's Terms and Conditions and click "Sign Up".
+  4. Agree to Microsoft's Terms and Conditions and click **Sign Up**.
 
 This may take a minute or two, but you should see a welcome screen informing you that your subscription is ready.  Like the Office 365 trial above, the Azure subscription is good for up to $200 of resources for 30 days.  After 30 days, your subscription (and resources) will be suspended unless you convert your trial subscription to a paid one.  And, should you choose to do so, you can elect to use a different credit card than the one you just entered.
 
