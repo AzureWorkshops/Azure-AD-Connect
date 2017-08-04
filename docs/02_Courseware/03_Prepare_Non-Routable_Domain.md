@@ -1,6 +1,6 @@
 ## Objective
 In typical on-premises installations of Active Directory, utilized domain name extensions, such as ".local", create what are known as _non-routable domains_.  In other words, there's no such top-level domain (TLD) extension.  In the words of Microsoft's support:
->Azure AD Connect only synchronizes users to domains that are verified by Office 365. This means that the domain also is verified by Azure Active Directory because Office 365 identities are managed by Azure Active Directory. In other words, the domain has to be a valid Internet domain (for example, .com, .org, .net, .us, etc.). If your internal Active Directory only uses a non-routable domain (for example, .local), this can't possibly match the verified domain you have on Office 365.
+!!<h4>Synchronization</h4>Azure AD Connect only synchronizes users to domains that are verified by Office 365. This means that the domain also is verified by Azure Active Directory because Office 365 identities are managed by Azure Active Directory. In other words, the domain has to be a valid Internet domain (for example, .com, .org, .net, .us, etc.). If your internal Active Directory only uses a non-routable domain (for example, .local), this can't possibly match the verified domain you have on Office 365.
 
 The objective for this step is to modify our local domain to create a routable domain.  We will then update the UPN of our users to take advantage of this new domain.
 
@@ -74,5 +74,6 @@ Finally, if you have a lot of users in your domain, manually updating the UPN do
 
 ```PS
 $LocalUsers = Get-ADUser -Filter {UserPrincipalName -like '*mycompany.local'} -Properties userPrincipalName -ResultSetSize $null
+
 $LocalUsers | foreach {$newUpn = $_.UserPrincipalName.Replace("mycompany.local","mycompany.onmicrosoft.com"); $_ | Set-ADUser -UserPrincipalName $newUpn}
 ```
