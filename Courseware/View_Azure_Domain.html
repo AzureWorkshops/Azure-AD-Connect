@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>View Azure Domain - Azure AD Connect</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Joshua Davis">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Azure AD Connect</a> / <a href="../Courseware/Exploring_Azure.html">Courseware</a> / <a href="../Courseware/View_Azure_Domain.html">View Azure Domain</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Office_365_and_Azure_Registration.html">Office 365 and Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Exploring_Azure.html">Exploring Azure</a></li><li class='Nav__item '><a href="../Courseware/Create_Connect_Server.html">Create Connect Server</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/View_Azure_Domain.html">View Azure Domain</a></li><li class='Nav__item '><a href="../Courseware/Prepare_Non-Routable_Domain.html">Prepare Non-Routable Domain</a></li><li class='Nav__item '><a href="../Courseware/Installing_Azure_AD_Connect.html">Installing Azure AD Connect</a></li><li class='Nav__item '><a href="../Courseware/Monitoring_Health.html">Monitoring Health</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Azure AD Connect.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>View Azure Domain</h1>
+                    <div class="date"> Friday, August 4, 2017 7:45 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Objective">Objective</h2>
+<p>This next objective is very small.  We simply want to verify our Azure AD domain settings and enable premium features.</p>
+<h2 id="page_Verify-the-Domain">Verify the Domain</h2>
+<p>If you are not currently at dashboard within the Azure portal, go ahead and close all blades.</p>
+<ol>
+<li>
+<p>On the left menu, you should see <strong>Azure Active Directory</strong> <img src="../images/azure_ad_icon.jpg" class="inline"/>. Click it.</p>
+</li>
+<li>
+<p>On the left, in the newly expanded Azure Active Directory menu, click on <strong>Domain names</strong> <img src="../images/domain_names_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>You should see your Office 365 domain name listed and set as <em>Primary</em>.</p>
+</li>
+</ol>
+<p>You may notice, at this point, that if we wanted to add a custom FQDN to Azure AD (e.g. <em>yourcompany.com</em>), we could do so here by selecting the <strong>Add domain name</strong> <img src="../images/add_icon.jpg" class="inline"/> item from the <em>Actions</em> menu at the top.</p>
+<p>After we added our custom FQDN, we would be required to verify our ownership of the domain by adding a TXT DNS record.  Once we completed the verification process, we could then choose to set our custom domain as <em>Primary</em>.</p>
+<p>Understand that the <em>Primary</em> domain is <strong>not</strong> the only domain we can synchronize with our on-premises domain.  In the case that, let's say, we have multiple business units that have their own Accounts Domain, we could have multiple subdomains listed here.  Then, each business unit's AD would sync with its respective subdomain in Azure AD.</p>
+<p>For our workshop, the Office 365 domain (e.g. <em>&lt;yourcompany&gt;</em>.onmicrosoft.com) is sufficient.</p>
+<h2 id="page_Enable-Premium-Features">Enable Premium Features</h2>
+<p>Even though we are using a trial of Office 365 Business Premium for our workshop, Azure AD Premium is a different SKU.  We, therefore, have to enable the features before we can use them.</p>
+<ol>
+<li>
+<p>While still in <em>Azure Active Directory</em>, click on the <strong>Licenses</strong> <img src="../images/licensing_icon.jpg" class="inline"/> menu item.</p>
+</li>
+<li>
+<p>In the next menu, click on the <strong>All products</strong> <img src="../images/licensing_icon.jpg" class="inline"/> menu item.</p>
+</li>
+<li>
+<p>On the next page, in the <em>Actions</em> section, click on <strong>Try / Buy</strong> <img src="../images/add_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>You will now see two options for enabling premium features - <strong>Azure AD Premium</strong> and <strong>Enterprise Mobility Suite</strong>.  For our workshop, <strong>Azure AD Premium</strong> is sufficient. Click on <strong>Free trial</strong> in the <strong>Azure AD Premium</strong> tile.</p>
+</li>
+<li>
+<p>This will initiate a 30-day trial of Azure AD Premium features. Click <em>Activate</em>.</p>
+</li>
+</ol>
+<p>You will need to refresh your Internet browser to see the effects of enabling Azure AD Premium.  Within the Azure Active Directory blades, you may have noticed a gray bar stating that some of the features were only available in Azure AD Premium.  Once you refresh your browser and return to Azure Active Directory, you should no longer see the gray bar and, instead, see all features activated.</p>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Create_Connect_Server.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Prepare_Non-Routable_Domain.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                <strong>In this article</strong><ol><li><a href="#page_Objective">Objective</a></li><li><a href="#page_Verify-the-Domain">Verify the Domain</a></li><li><a href="#page_Enable-Premium-Features">Enable Premium Features</a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Create Connect Server - Azure AD Connect</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Joshua Davis">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Azure AD Connect</a> / <a href="../Courseware/Exploring_Azure.html">Courseware</a> / <a href="../Courseware/Create_Connect_Server.html">Create Connect Server</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Office_365_and_Azure_Registration.html">Office 365 and Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Exploring_Azure.html">Exploring Azure</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/Create_Connect_Server.html">Create Connect Server</a></li><li class='Nav__item '><a href="../Courseware/View_Azure_Domain.html">View Azure Domain</a></li><li class='Nav__item '><a href="../Courseware/Prepare_Non-Routable_Domain.html">Prepare Non-Routable Domain</a></li><li class='Nav__item '><a href="../Courseware/Installing_Azure_AD_Connect.html">Installing Azure AD Connect</a></li><li class='Nav__item '><a href="../Courseware/Monitoring_Health.html">Monitoring Health</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Azure AD Connect.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Create Connect Server</h1>
+                    <div class="date"> Friday, August 4, 2017 7:45 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Objective">Objective</h2>
+<p>We could use our domain controller for the AD Connect synchronization server, but this is a bad idea.  There's typically multiple (primary, secondar, maybe more) domain controllers in an Active Directory environment. We are only allowed to have one active/hot AD Connect synchronization server in our environment.  What happens if the domain controller where the the synchronization tool is installed fails?  We would lose synchronization capabilities.</p>
+<p>Let's create a standalone AD Connect synchronization server.</p>
+<h2 id="page_Create-the-Server-in-Azure">Create the Server in Azure</h2>
+<p>If you are not currently at dashboard within the Azure portal, go ahead and close all blades.</p>
+<p>On the left menu, you should see <strong>Virtual machines</strong> <img src="../images/vm_icon.jpg" class="inline"/>. Click it.</p>
+<ol>
+<li>
+<p>In the actions section of the virtual machines blade, click on <img src="../images/add.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>In the <em>Search Compute</em> search box, type in <strong>Windows Server 2016 Datacenter</strong>. Press Enter.</p>
+</li>
+<li>
+<p>In the returned results, choose the option that simply reads <img src="../images/windows_server_2016_datacenter.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>In the next blade, make sure <strong>Resource Manager</strong> is selected. Then, click <em>Create</em>.</p>
+</li>
+<li>
+<p>There are 4 sections to configure the virtual machine.</p>
+<ol>
+<li>
+<p>Basics</p>
+<ul>
+<li>Name: <strong>ad-connect</strong>
+</li>
+<li>VM disk type: <strong>SSD</strong>
+</li>
+<li>Username: <strong>cloudadmin</strong>
+</li>
+<li>Password: <strong>Pass@word1234</strong>
+</li>
+<li>Confirm Password: <em>&lt;same as above&gt;</em>
+</li>
+<li>Subscription: <strong>Free Trial</strong>
+</li>
+<li>Resource Group: <strong>Use existing</strong> - <em>&lt;use the same resource group created by the CLI&gt;</em>
+</li>
+<li>Location:  <em>&lt;use the same location you chose in the CLI&gt;</em>
+</li>
+<li>Save money: <strong>No</strong>
+</li>
+</ul>
+</li>
+<li>
+<p>Size</p>
+<ul>
+<li>
+<strong>DS1_V2</strong>
+</li>
+</ul>
+</li>
+<li>
+<p>Settings</p>
+<ul>
+<li>Use managed disks: <strong>No</strong>
+</li>
+<li>Storage account: <em>&lt;use the same storage account created by the CLI&gt;</em> (e.g. <em>azwdata###</em>)</li>
+<li>Network: <strong>vnet</strong>
+</li>
+<li>Subnet: <strong>default (10.3.1.0/24)</strong>
+</li>
+<li>Public IP address: (click on it &amp; <em>Create new</em>)
+<ul>
+<li>Name: <strong>connect-ip</strong>
+</li>
+<li>Assignment: <strong>Static</strong>
+</li>
+</ul>
+</li>
+<li>Network security group (firewall): <strong>None</strong>
+</li>
+<li>Extensions: <strong>None</strong>
+</li>
+<li>Availability set: <strong>None</strong>
+</li>
+<li>Boot diagnostics: <strong>Enabled</strong>
+</li>
+<li>Guest OS diagnostics: <strong>Disabled</strong>
+</li>
+<li>Diagnostics storage account: <em>&lt;use the same storage account created by the CLI&gt;</em> (e.g. <em>azwdiags###</em>)</li>
+</ul>
+</li>
+<li>
+<p>Summary (just click <em>OK</em> to continue)</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>The machine we chose for this workshop is relatively small.  After all, we only have 4 identities that we'll be synchronizing with Azure AD.  If this was a production environment we would have to take into consideration that password sync's occur approximately every 2 minutes while full synchronization happens every 15-30 minutes.  For production, we would need to choose a machine that is more capable of handling the workload.</p>
+<p>Keep in mind, that we are treating Azure like our on-premises datacenter.  In reality, we would have simply created a new VM in our on-premises hypervisor (Hyper-V, VMware, etc.)</p>
+<h2 id="page_Add-Machine-to-Domain">Add Machine to Domain</h2>
+<p>We need to add the new machine to our Active Directory domain.  AD Connect must be installed on an AD-joined machine.</p>
+<h3 id="page_Set-the-Private-IP-as-Static">Set the Private IP as Static</h3>
+<p>Before we add the machine to the domain, we need to set the private IP to static so that Azure's DHCP server doesn't reassign the IP to another machine.</p>
+<ol>
+<li>
+<p>If you are not viewing the details on the newly created machine, click on the <strong>Virtual machines</strong> <img src="../images/vm_icon.jpg" class="inline"/> menu item, then click on the <strong>ad-connect</strong> machine in the list.</p>
+</li>
+<li>
+<p>Once you've clicked on the <strong>ad-connect</strong> machine and are viewing the machine's <em>Overview</em> blade, choose <strong>Network interfaces</strong> <img src="../images/network_interfaces_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>In the resulting list of network interfaces, choose the single NIC that is listed (e.g. <em>ad-connectXXX</em>).</p>
+</li>
+<li>
+<p>On the network interface menu, click on <strong>IP configurations</strong> <img src="../images/window_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>The resulting list should only contain a single configuration - <em>ipconfig1</em>. You'll notice that under the heading <em>PRIVATE IP ADDRESS</em>, the configuration is listed as <em>Dynamic</em>. Click on this configuration.</p>
+</li>
+<li>
+<p>In the settings for the configuration, under <em>Private IP address settings</em>, change the <em>Assignment</em> to <strong>Static</strong>. (The IP address should be 10.3.1.6.  If it is not, update it, as well.)</p>
+</li>
+<li>
+<p>Click <em>Save</em>.</p>
+</li>
+</ol>
+<p>You can now close the two blades (e.g. ad-connectXXX, network interface) to arrive at the main <strong>Network interfaces</strong> <img src="../images/network_interfaces_icon.jpg" class="inline"/> blade for the <strong>ad-connect</strong> virtual machine.</p>
+<h3 id="page_Connect-to-the-Machine-via-Remote-Desktop">Connect to the Machine via Remote Desktop</h3>
+<p>To connect to the machine remotely, we need to download the Remote Desktop Protocol (RDP) profile.</p>
+<ol>
+<li>
+<p>Click on the <strong>Overview</strong> <img src="../images/overview_icon.jpg" class="inline"/> to return to the general information for the <strong>ad-connect</strong> virtual machine.</p>
+</li>
+<li>
+<p>In the <strong>Actions</strong> section, click on <strong>Connect</strong> <img src="../images/connect_icon.jpg" class="inline"/>. This will download the RDP profile to your machine.</p>
+</li>
+<li>
+<p>Open the profile and accept any warnings.</p>
+</li>
+<li>
+<p>For the username, enter <strong>\cloudadmin</strong> (with the backslash). And, for the password, enter <strong>Pass@word1234</strong>. Click <em>OK</em>.</p>
+</li>
+<li>
+<p>Again, accept any warnings.</p>
+</li>
+</ol>
+<h3 id="page_Add-the-Machine-to-the-Domain">Add the Machine to the Domain</h3>
+<p>When you initially connect to the machine, you will see the <em>Server Manager</em> dashboard.</p>
+<p>We've already set the IP on the network interface card (NIC) to be static in Azure.  Technically speaking, we've created a <em>reservation</em> in Azure's DHCP server for the NIC in our virtual network. However, before we add the machine to the domain, it is best if we set the IP as static within Windows Server's TCP/IP configuration.</p>
+<ol>
+<li>
+<p>In the left menu of <em>Server Manager</em>, click on <strong>Local Server</strong>.</p>
+</li>
+<li>
+<p>In the resulting page, you'll see a couple of sections. The first section is labeled <em>Properties</em>.  <em>Properties</em> has two columns.  Half-way down the left column, you'll see <em>Ethernet</em> followed by a number.  Beside this, you will see in blue <strong>IPv4 address assigned by DHCP, IPv6 enabled</strong>. Click on this.</p>
+</li>
+<li>
+<p>This will open the <em>Network Connections</em> window. Right-click on the single listed adapter and click on <strong>Properties</strong> in the context menu.</p>
+</li>
+<li>
+<p>In the <em>Properties</em> window for the NIC, scroll down until you see <em>Internet Protocol Version 4 (TCP/IPv4)</em>. Highlight it, then click <em>Properties</em>.</p>
+</li>
+<li>
+<p>Enter the values as you see them below. <img src="../images/ad_connect_ip_configuration.jpg" class="block" /></p>
+</li>
+<li>
+<p>Click <em>OK</em>, the <em>Close</em>. <strong>NOTE:</strong> Clicking <em>Close</em> will cause a brief interruption in your connectivity. That's okay.  The connection should be re-established within a couple of seconds.</p>
+</li>
+<li>
+<p>Once the connection has been re-established, you can close the <em>Network Connections</em> window.</p>
+</li>
+<li>
+<p>Back in the <em>Properties</em> section, in the half-way down the right column, you will see <em>IE Enhanced Security Configuration</em>. To the right of that in blue, you probably see <strong>On</strong>. Click on it.</p>
+</li>
+<li>
+<p>In the <em>Internet Explorer Enhanced Security Configuration</em> dialog, choose <strong>Off</strong> for both, Administrators and Users. Then, click <em>OK</em>.</p>
+</li>
+<li>
+<p>Once more, in the <em>Properties</em> section, the second item listed in the left column reads <em>Workgroup</em>. To the right of that, you will see in blue <strong>WORKGROUP</strong>. Click on it.</p>
+</li>
+<li>
+<p>In the <em>System Properties</em> dialog, half-way down, click on the <em>Change</em> button.</p>
+</li>
+<li>
+<p>In the resulting <em>Computer Name/Domain Changes</em> dialog:</p>
+<ol>
+<li>Leave the <em>Computer name</em> as it is (e.g. <em>ad-connect</em>).</li>
+<li>Under <em>Member of</em>, change the selection to <em>Domain</em> and enter the domain name you entered earlier in the CLI (e.g. mycompany.local).</li>
+<li>Click <em>OK</em>.</li>
+<li>For the username and password enter your <em>Domain Admin</em> username and <em>Domain Admin Password</em>, respectively, as reported previously by the CLI.</li>
+<li>Click <em>OK</em>.</li>
+</ol>
+</li>
+</ol>
+<p>If all goes well, you should be added to the virtual datacenter domain and receive a message stating as much. To complete this will require a reboot, thus disconnecting you from your remote session.</p>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Exploring_Azure.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/View_Azure_Domain.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                <strong>In this article</strong><ol><li><a href="#page_Objective">Objective</a></li><li><a href="#page_Create-the-Server-in-Azure">Create the Server in Azure</a></li><li><a href="#page_Add-Machine-to-Domain">Add Machine to Domain</a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

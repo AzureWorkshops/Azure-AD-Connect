@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Setup - Azure AD Connect</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Joshua Davis">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Azure AD Connect</a> / <a href="../Getting_Started/Requirements.html">Getting Started</a> / <a href="../Getting_Started/Setup.html">Setup</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Office_365_and_Azure_Registration.html">Office 365 and Azure Registration</a></li><li class='Nav__item Nav__item--active'><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Exploring_Azure.html">Exploring Azure</a></li><li class='Nav__item '><a href="../Courseware/Create_Connect_Server.html">Create Connect Server</a></li><li class='Nav__item '><a href="../Courseware/View_Azure_Domain.html">View Azure Domain</a></li><li class='Nav__item '><a href="../Courseware/Prepare_Non-Routable_Domain.html">Prepare Non-Routable Domain</a></li><li class='Nav__item '><a href="../Courseware/Installing_Azure_AD_Connect.html">Installing Azure AD Connect</a></li><li class='Nav__item '><a href="../Courseware/Monitoring_Health.html">Monitoring Health</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Azure AD Connect.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Setup</h1>
+                    <div class="date"> Friday, August 4, 2017 7:45 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Installing-the-CLI">Installing the CLI</h2>
+<p>Once you have the requisites installed, you will then need to install the CLI.  The CLI can be installed from the command-line or terminal prompt using Node.js.</p>
+<p>First, open a command-line window or terminal prompt. Then, type the following command:</p>
+<pre><code class="language-bash">npm install azworkshops-cli -g
+</code></pre>
+<p>Running this command will take a few seconds to complete.  But, doing so will download the Azure Workshops CLI, along with its dependencies, into a directory that is located in a globally accessible path.</p>
+<h2 id="page_Azure-Subscription">Azure Subscription</h2>
+<p>As stated in the requirements section, the workshop requires an active Azure subscription.</p>
+<div class="bs-callout bs-callout-primary"><h4>Recommendation</h4>It is recommended that you do not use an Azure subscription that is currently being used for production.  The CLI will create it's own resource groups, but it is not the best practice to utilize production environments for testing and workshops, such as this.</div>
+
+<p>For best results, it is recommended that you setup register for the trial subscription as outlined on the <a href="Office_365_and_Azure_Registration.html">previous</a> page.</p>
+<h2 id="page_Creating-the-Lab-Environment">Creating the Lab Environment</h2>
+<div class="bs-callout bs-callout-primary"><h4>Build Time</h4>The automated building of the lab environment can take approximately 30 minutes to complete.  It is best to begin this process while you are reviewing the workshop material.</div>
+
+<h3 id="page_Verify-Installation-of-the-CLI">Verify Installation of the CLI</h3>
+<p>From a prompt, enter the following command:</p>
+<pre><code class="language-bash">azworkshops --version
+</code></pre>
+<p>A successful execution of the command should print the current version of the Azure Workshops CLI which can be found in the right column, slightly down the page, of the Node Package Manager <a href="https://www.npmjs.com/package/azworkshops-cli" class="external">website</a>. If you do not see a version number, return to the requirements <a href="Requirements.html">setup</a> and try reinstalling them.</p>
+<p>If you successfully see the correct version number, you are ready to begin the lab setup.</p>
+<h3 id="page_Build-the-Environment">Build the Environment</h3>
+<p>From a prompt, enter the following:</p>
+<pre><code class="language-bash">azworkshops
+</code></pre>
+<ol>
+<li>
+<p>You will be presented with a menu from which to choose a base configuration.  Choose the base configuration for <strong>Basic Active Directory</strong>.</p>
+</li>
+<li>
+<p>You will then need to authenticate with Azure.  Visit <a href="http://aka.ms/devicelogin" class="external">http://aka.ms/devicelogin</a> and enter the code provided to you.</p>
+</li>
+<li>
+<p>Choose the subscription that you would like to use for this workshop.</p>
+</li>
+<li>
+<p>Select the location for the created resources.  It is best to choose a location that is closest to you in order to reduce latency.</p>
+</li>
+<li>
+<p>You will then be prompted with additional configuration questions.</p>
+<ol>
+<li>
+<p>For the AD domain name, enter your company name from the previous page with '.local' as the TLD (e.g. mycompany.local).</p>
+</li>
+<li>
+<p>For the NETBIOS name, it should automatically be an ALLCAPS version of the company name that you just entered (without the '.local' TLD extension). If so, just press Enter to accept the default. If not, enter a valid NETBIOS name.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>After completing the configuration questions, the building of the lab environment will begin. Once completed, you will be presented with all of the lab's configured settings (e.g. resource group, domain, domain admin, password, etc.) It is best to copy this down for future use.</p>
+</li>
+</ol>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Getting_Started/Office_365_and_Azure_Registration.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Exploring_Azure.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                <strong>In this article</strong><ol><li><a href="#page_Installing-the-CLI">Installing the CLI</a></li><li><a href="#page_Azure-Subscription">Azure Subscription</a></li><li><a href="#page_Creating-the-Lab-Environment">Creating the Lab Environment</a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

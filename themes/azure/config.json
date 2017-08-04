@@ -1,0 +1,11 @@
+{
+  "favicon": "",
+  "css": ["<theme_url>css/vs.css","<theme_url>css/theme.css"],
+  "js": [],
+  "fonts": [],
+  "variants": {
+    "white": {
+      "css": ["<theme_url>css/theme-white.min.css"]
+    }
+  }
+}

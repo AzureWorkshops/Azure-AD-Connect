@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Monitoring Health - Azure AD Connect</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Joshua Davis">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Azure AD Connect</a> / <a href="../Courseware/Exploring_Azure.html">Courseware</a> / <a href="../Courseware/Monitoring_Health.html">Monitoring Health</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Office_365_and_Azure_Registration.html">Office 365 and Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Exploring_Azure.html">Exploring Azure</a></li><li class='Nav__item '><a href="../Courseware/Create_Connect_Server.html">Create Connect Server</a></li><li class='Nav__item '><a href="../Courseware/View_Azure_Domain.html">View Azure Domain</a></li><li class='Nav__item '><a href="../Courseware/Prepare_Non-Routable_Domain.html">Prepare Non-Routable Domain</a></li><li class='Nav__item '><a href="../Courseware/Installing_Azure_AD_Connect.html">Installing Azure AD Connect</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/Monitoring_Health.html">Monitoring Health</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Azure AD Connect.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Monitoring Health</h1>
+                    <div class="date"> Friday, August 4, 2017 7:45 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Objective">Objective</h2>
+<p>We are going to conclude this workshop with enabling monitoring on our Active Directory Domain Services.</p>
+<h2 id="page_Install-the-Agent">Install the Agent</h2>
+<p>In order to see reports for our domain services, we need to install the Azure AD Connect Health Agent for AD DS onto our domain controller.</p>
+<h3 id="page_Disable-IE-ESC">Disable IE ESC</h3>
+<p>By default, Internet Explorer Enhanced Security Configuration is enabled which will prevent us from downloading anything.  We need to disable this. (<strong>NOTE:</strong> In production, you would typically not do this.  In production, you would leave IE ESC enabled and copy the downloaded agent via RDP onto the machine.  However, since this is a workshop, we'll make some concessions.)</p>
+<ol>
+<li>
+<p>If you're not still connected to the <strong>dc1</strong> VM, go ahead and do that now. As a reminder, you will need to do so <em>through</em> the <strong>utility</strong> machine.</p>
+</li>
+<li>
+<p>Once you've connected <strong>dc1</strong>, open <em>Service Manager</em> if it's not already open.</p>
+</li>
+<li>
+<p>In the left menu of <em>Server Manager</em>, click on <strong>Local Server</strong>.</p>
+</li>
+<li>
+<p>In the resulting page, you'll see a couple of sections. The first section is labeled <em>Properties</em>.  <em>Properties</em> has two columns.  Half-way down the right column, you will see <em>IE Enhanced Security Configuration</em>. To the right of that in blue, you probably see <strong>On</strong>. Click on it.</p>
+</li>
+<li>
+<p>In the <em>Internet Explorer Enhanced Security Configuration</em> dialog, choose <strong>Off</strong> for both, Administrators and Users. Then, click <em>OK</em>.</p>
+</li>
+</ol>
+<h3 id="page_Download-and-Install-the-Agent">Download and Install the Agent</h3>
+<p>Now we're ready to download and install the agent.</p>
+<ol>
+<li>
+<p>On <strong>dc1</strong>, open a web browser and go to <a href="http://go.microsoft.com/fwlink/?LinkID=820540" class="external">http://go.microsoft.com/fwlink/?LinkID=820540</a>. This will automatically download the agent.</p>
+</li>
+<li>
+<p>Once the download is complete, run it.</p>
+</li>
+<li>
+<p>In the <strong>Microsoft Azure AD Connect Health agent for AD DS Setup</strong> window, click <strong>Install</strong>.</p>
+</li>
+<li>
+<p>Once it has completed installation and has informed you that the setup was successful, click <strong>Configure Now</strong>.</p>
+</li>
+<li>
+<p>This will run a PowerShell script and require that you authenticate with Azure. Enter your credentials for your <em>&lt;yourcompany&gt;.onmicrosoft.com</em> account.</p>
+</li>
+<li>
+<p>After a few seconds of watching the script continue to run, you should see that the <strong>Agent registration completed successfully.</strong>  Go ahead and close the PowerShell window.</p>
+</li>
+</ol>
+<h2 id="page_View-Agent-Metrics">View Agent Metrics</h2>
+<p>We're now ready to see how our domain controller is functioning. Let's return to Azure to view the reports.</p>
+<ol>
+<li>
+<p>In Azure's left menu, click on <strong>Azure Active Directory</strong> <img src="../images/azure_ad_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>In the <em>Azure Active Directory</em> blade, click on <strong>Azure AD Connect</strong> <img src="../images/azure_ad_connect_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>Under <strong>HEALTH AND ANALYTICS</strong>, click on <strong>Azure AD Connect Health</strong> (I know, it's a little obscure).</p>
+</li>
+<li>
+<p>There are three sections to the health dashboard - AD FS, AD Connect (Sync), and AD DS. Since we don't have Federated Services configured, this tile should be empty.  However, you should see both, respective, domains under AD Connect and AD DS.  Clicking on these domains will give us details of how they are functioning.</p>
+</li>
+</ol>
+<p>Azure AD Conenct Health is still very young in development.  As you click around, you may find some features disabled.  Keep monitoring this to see how it expands to give you greater visability into your AD infrastructure.</p>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Installing_Azure_AD_Connect.html">Previous</a></li>
+                                            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                <strong>In this article</strong><ol><li><a href="#page_Objective">Objective</a></li><li><a href="#page_Install-the-Agent">Install the Agent</a></li><li><a href="#page_View-Agent-Metrics">View Agent Metrics</a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Office 365 and Azure Registration - Azure AD Connect</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Joshua Davis">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Azure AD Connect</a> / <a href="../Getting_Started/Requirements.html">Getting Started</a> / <a href="../Getting_Started/Office_365_and_Azure_Registration.html">Office 365 and Azure Registration</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item Nav__item--active'><a href="../Getting_Started/Office_365_and_Azure_Registration.html">Office 365 and Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Exploring_Azure.html">Exploring Azure</a></li><li class='Nav__item '><a href="../Courseware/Create_Connect_Server.html">Create Connect Server</a></li><li class='Nav__item '><a href="../Courseware/View_Azure_Domain.html">View Azure Domain</a></li><li class='Nav__item '><a href="../Courseware/Prepare_Non-Routable_Domain.html">Prepare Non-Routable Domain</a></li><li class='Nav__item '><a href="../Courseware/Installing_Azure_AD_Connect.html">Installing Azure AD Connect</a></li><li class='Nav__item '><a href="../Courseware/Monitoring_Health.html">Monitoring Health</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Azure AD Connect.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Office 365 and Azure Registration</h1>
+                    <div class="date"> Friday, August 4, 2017 7:45 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Demo-Domain">Demo Domain</h2>
+<p>For the purposes of this workshop, you will need a demo domain name - a domain name that you will <em>not</em> be required to register with a domain name registrar (DNR), but will be used as your fictitious company.  We, of course, do not want to use any domain names associated with production accounts.</p>
+<p>The simple way to do this is allow a service to create one for us.  So, to create a random domain name, we'll actually use a random username generator.</p>
+<p>Open a browser to <a href="http://jimpix.co.uk/words/random-username-generator.asp" class="external">http://jimpix.co.uk/words/random-username-generator.asp</a> and click the green &quot;Go!&quot; button close to the top of the page.  Upon doing this, you will be presented with 25 different two-word combinations.  Pick one that you like or click the green &quot;Refresh&quot; button until you do.</p>
+<p>Once you find a domain name, write it down; you will use it for the remainder of the workshop.</p>
+<h2 id="page_Office-365">Office 365</h2>
+<p>Now that we have a domain name, let's create a 1-month trial Office 365 account. This will automatically create a domain in Azure AD which we'll connect to virtual datacenter later in the workshop.</p>
+<p>Direct your browswer to <a href="https://products.office.com/en-us/business/office-365-affiliate-program-try-business-premium" class="external">https://products.office.com/en-us/business/office-365-affiliate-program-try-business-premium</a>.  In order to take advantage of some of the Azure Active Directory premium features, we will need the Business Premium edition of Office 365.</p>
+<ol>
+<li>
+<p>Begin by clicking on the green button &quot;Start your free business trial&quot;.</p>
+</li>
+<li>
+<p>Complete the form on the first page:</p>
+<ul>
+<li>Choose your country (this cannot be changed later due to data sovereignty and other factors)</li>
+<li>Enter your name</li>
+<li>Enter an email address (this should be a <em>legitimate email address</em> as this will be the administrator's security/reset email)</li>
+<li>Enter a phone number (enter a <em>legitimate cell phone number</em> in order to test multi-factor authentication)</li>
+<li>Enter your company name from above</li>
+<li>Choose a company size</li>
+</ul>
+</li>
+<li>
+<p>For the form on the second page:</p>
+<ul>
+<li>Enter a username for yourself in a format you prefer (e.g. if your name was John Doe, you could enter: john.doe, jdoe, john_doe, etc.)</li>
+<li>For your company, enter the company name from above (NOTE: you will see here that the initial domain name will be <em>yourcompany</em>.onmicrosoft.com.  This is the Azure Active Directory domain to which we will connect later in the workshop.) If your domain name has already been used, try another one from the previous list.</li>
+<li>Enter and confirm your password</li>
+</ul>
+</li>
+<li>
+<p>Prove you are not a robot by entering a telephone number at which you can receive a text or phone call.</p>
+</li>
+<li>
+<p>Enter the code that was text'ed to you or that you received from the auto-attendant.</p>
+</li>
+</ol>
+<p>It should take less than a minute to create your account.  After the process is complete, you should see a message stating that you are ready to go.  While you account was <em>created</em> in less than a minute, it may take up to another 15 minutes or so to finish creating all of the additional services in Office 365.  That's fine, as it will be a while before we actually need them.</p>
+<p>Finally, remember this trial account is only good for 30 days.  While Microsoft will not initially <em>delete</em> your account, they will disable functionality.</p>
+<h2 id="page_Azure">Azure</h2>
+<p>Finally, we need to create a trial Azure subscription.  Believe it or not, we are already using Azure Active Directory because we just set up Office 365.  Office 365 uses Azure AD underneath to manage all of our exchange users.  We simply need to create a subscription so that we can leverage Azure's other offerings.</p>
+<p>Direct your browser to <a href="https://azure.microsoft.com/en-us/free/" class="external">https://azure.microsoft.com/en-us/free/</a> and begin by clicking on the green button that reads <strong>Start free</strong>.</p>
+<p><strong>IMPORTANT:</strong> On the sign-up form page, you should see your new email address that associated with your new Office 365 account.  If not, click on <strong>Sign Out</strong> and re-authenticate using your newly formed credentials (e.g. username@<em>yourcompany</em>.onmicrosoft.com).</p>
+<ol>
+<li>
+<p>In the first section, complete the form in its entirety. Make sure you use your <em>real</em> email address for the important notifications.</p>
+</li>
+<li>
+<p>In the second section, enter a <em>real</em> mobile phone number to receive a text verification number.  Click send message and re-type the received code.</p>
+</li>
+<li>
+<p>Enter a valid credit card number. <strong>NOTE:</strong> You will <em>not</em> be charged.  This is for verification of identity only in order to comply with federal regulations.  Your account statement may see a temporary hold of $1.00 from Microsoft, but, again, this is for verification only and will &quot;fall off&quot; your account within 2-3 banking days.</p>
+</li>
+<li>
+<p>Agree to Microsoft's Terms and Conditions and click <strong>Sign Up</strong>.</p>
+</li>
+</ol>
+<p>This may take a minute or two, but you should see a welcome screen informing you that your subscription is ready.  Like the Office 365 trial above, the Azure subscription is good for up to $200 of resources for 30 days.  After 30 days, your subscription (and resources) will be suspended unless you convert your trial subscription to a paid one.  And, should you choose to do so, you can elect to use a different credit card than the one you just entered.</p>
+<p>Congratulations!  You've now created an Office 365 tenant; an Azure tenant and subscription; and, have linked the two together.</p>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Getting_Started/Requirements.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Getting_Started/Setup.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                <strong>In this article</strong><ol><li><a href="#page_Demo-Domain">Demo Domain</a></li><li><a href="#page_Office-365">Office 365</a></li><li><a href="#page_Azure">Azure</a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>

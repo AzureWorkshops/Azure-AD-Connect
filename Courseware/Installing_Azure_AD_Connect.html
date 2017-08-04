@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Installing Azure AD Connect - Azure AD Connect</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="description" content="Azure Workshops" />
+    <meta name="author" content="Joshua Davis">
+    <link rel="icon" href="" type="image/x-icon">
+    
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../themes/azure/css/vs.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme.css' rel='stylesheet' type='text/css'><link href='../themes/azure/css/theme-white.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="">
+
+        <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Azure Workshops</a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <!--
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div id="content-wrapper" class="container-fluid">
+    <div class="row hidden-print">
+        <div class="col-md-10 col-md-offset-1 breadcrumbs">
+            <a href="../index.html">Azure AD Connect</a> / <a href="../Courseware/Exploring_Azure.html">Courseware</a> / <a href="../Courseware/Installing_Azure_AD_Connect.html">Installing Azure AD Connect</a>        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 hidden-print">
+            <div data-spy="affix" data-offset-top="100">
+                <!-- Navigation -->
+                <ul class='Nav'><li class='Nav__item '><a href="../Overview.html">Overview</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Getting Started</a><ul class='Nav'><li class='Nav__item '><a href="../Getting_Started/Requirements.html">Requirements</a></li><li class='Nav__item '><a href="../Getting_Started/Office_365_and_Azure_Registration.html">Office 365 and Azure Registration</a></li><li class='Nav__item '><a href="../Getting_Started/Setup.html">Setup</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Courseware</a><ul class='Nav'><li class='Nav__item '><a href="../Courseware/Exploring_Azure.html">Exploring Azure</a></li><li class='Nav__item '><a href="../Courseware/Create_Connect_Server.html">Create Connect Server</a></li><li class='Nav__item '><a href="../Courseware/View_Azure_Domain.html">View Azure Domain</a></li><li class='Nav__item '><a href="../Courseware/Prepare_Non-Routable_Domain.html">Prepare Non-Routable Domain</a></li><li class='Nav__item Nav__item--active'><a href="../Courseware/Installing_Azure_AD_Connect.html">Installing Azure AD Connect</a></li><li class='Nav__item '><a href="../Courseware/Monitoring_Health.html">Monitoring Health</a></li></ul></li></ul>
+                <div class="Links">
+                    
+                    <div class="pdf-link">
+                        <hr />
+                        <a href="../pdf/Azure AD Connect.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>Download PDF</span></a>
+                    </div>
+
+                                            <hr/>
+                        <div class="Twitter">
+                                                            <iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:162px; height:20px;" src="https://platform.twitter.com/widgets/follow_button.html?screen_name=azureworkshops&amp;show_count=false"></iframe>
+                                <br />
+                                <br />
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <article class="Page">
+    <div class="pageHeader">
+        <h1>Installing Azure AD Connect</h1>
+                    <div class="date"> Friday, August 4, 2017 7:45 AM</div>
+            </div>
+    <div class="copy">
+        <h2 id="page_Objective">Objective</h2>
+<p>We are now finally ready to begin the configuration of our synchronization process.  Upon completion of this step, your virtual datacenter will be sync'ing with Azure AD.</p>
+<h2 id="page_Install-Azure-AD-Connect">Install Azure AD Connect</h2>
+<p>To have our local domain synchronize with Azure AD we need Azure AD Connect.  We will install it on the <strong>ad-connect</strong> virtual machine.</p>
+<ol>
+<li>
+<p>As you have previously connected to the <strong>ad-connect</strong> and <strong>utility</strong> VMs already, let's RDP to the <strong>ad-connect</strong> machine once more.</p>
+</li>
+<li>
+<p>Once you've successfully connect to <strong>ad-connect</strong>, you will need to download and install the Azure AD Connect tool.  You can download it from <a href="https://www.microsoft.com/en-us/download/details.aspx?id=47594" class="external">https://www.microsoft.com/en-us/download/details.aspx?id=47594</a>.</p>
+</li>
+<li>
+<p>Upon installing Azure AD Connect, it will automatically run.</p>
+</li>
+<li>
+<p>Check the box agreeing to the license terms and click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>For the moment, <strong>Express Settings</strong> are sufficient.  We'll customize it later.  So, go ahead and click <strong>Use express settings</strong>.</p>
+</li>
+<li>
+<p>Once the basic initialization has completed, you will be asked for your Azure AD credentials.  Enter the credentials you use for authenticating against Azure for your trial subscription (e.g. <em>&lt;yourusername&gt;@&lt;yourcompany&gt;.onmicrosoft.com</em>). Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>For connecting to AD DS, use the <em>cloudadmin</em> credentials provided to you by the CLI (you've also used these credentials for connecting remotely into the VMs).</p>
+</li>
+<li>
+<p>The next screen confirms mapping between the local UPN and a <em>verified</em> domain in Azure AD.  Since we don't have a verified domain in Azure - we're just using the default *.onmicrosoft.com - all local accounts will be &quot;re-mapped&quot; to the onmicrosoft.com domain.  For our workshop, we can simply check the box next to <strong>Continue without any verified domains</strong> and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p><strong>BEFORE YOU CLICK Install</strong>, <em>uncheck</em> the box next to <strong>Start the synchronization process when configuration completes</strong>.  Otherwise, <em>all</em> accounts (including system accounts) will be synchronized creating a lot of bloat in our Azure AD.  We're going to create some filters before we conduct our first sync.</p>
+</li>
+<li>
+<p>Now, you're ready to complete the install for Azure AD Connect. Click <strong>Install</strong>.</p>
+</li>
+</ol>
+<p>After a few minutes, you should receive confirmation that the configuration has completed.  It may also give you a couple of house-keeping recommendations.  Go ahead and click <strong>Exit</strong> to exit the installer.</p>
+<h2 id="page_Configure-Synchronization-Filters">Configure Synchronization Filters</h2>
+<p>We need to create some filters to <em>only</em> synchronize our users who's UPNs have been updated to the &quot;new&quot; domain.</p>
+<p>In order to do this, we need to create what's called a &quot;Positive Filter.&quot; Basically, we're instructing AD Connect to &quot;only sync these.&quot;  Keep in mind that, by default AD Connect will sync <em>all</em> users in our domain (or OU, depending how we have configured the sync scope). So, in order to create a positive filter, we need to create two rules - one that specifies which users to sync; and, another that instructs AD Connect to <em>not</em> sync all of the remaining users.</p>
+<p>Both of our rules are considered <em>Incoming Sync Rules (ISR)</em> because they are determining what data we are allowing <em>into</em> the metaverse from our local Active Directory.</p>
+<p>First, let's begin by opening up the synchronization rules. In the <strong>Start Menu</strong> of the <strong>ad-connect</strong> VM, click on <strong>Sychronization Rules Editor</strong>. You'll see approximately 15-20 default rules.  We're going to add our two rules to the top in order for our rules to take precedence.</p>
+<h3 id="page_Users-Match-Filter">Users Match Filter</h3>
+<p>This filter will instruct which users we <em>do</em> want to sync with Azure AD.</p>
+<ol>
+<li>
+<p>In the <em>Synchronization Rules Editor</em> click on <strong>Add new rule</strong>.</p>
+</li>
+<li>
+<p><strong>Description</strong>:</p>
+<ol>
+<li>Name: <strong>UPN Demo - Users Match Filter</strong>
+</li>
+<li>Description: <strong>Only sync users who match our onmicrosoft.com UPN</strong>
+</li>
+<li>Connected System: <strong>choose your <em>.local</em> domain</strong>
+</li>
+<li>CS Object Type: <strong>user</strong>
+</li>
+<li>Metaverse Object Type: <strong>person</strong>
+</li>
+<li>Link Type: <strong>Join</strong>
+</li>
+<li>Precedence: <strong>50</strong>
+</li>
+<li>Enable Password Sync: <strong>check</strong>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Scoping filter</strong>:</p>
+<ol>
+<li>Click <strong>Add group</strong>
+</li>
+<li>Click <strong>Add clause</strong>
+</li>
+<li>In the clause, enter the following values for each column, respectively:
+<ul>
+<li>Attribute: <strong>userPrincipalName</strong>
+</li>
+<li>Operator: <strong>ENDSWITH</strong>
+</li>
+<li>Value: <strong><em>&lt;yourcompany&gt;</em>.onmicrosoft.com</strong>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Join rules</strong>: leave blank</p>
+</li>
+<li>
+<p><strong>Transformations</strong>:</p>
+<ol>
+<li>Click <strong>Add transformation</strong>
+</li>
+<li>In the transformation, enter the following values for each column, respectively:
+<ul>
+<li>FlowType: <strong>Constant</strong>
+</li>
+<li>Target Attribute: <strong>cloudFiltered</strong>
+</li>
+<li>Source: <strong>False</strong>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+<h3 id="page_Users-Catch-All-Filter">Users Catch-All Filter</h3>
+<p>This filter will instruct which users we <em>do not</em> want to sync with Azure AD.</p>
+<ol>
+<li>
+<p>In the <em>Synchronization Rules Editor</em> click on <strong>Add new rule</strong>.</p>
+</li>
+<li>
+<p><strong>Description</strong>:</p>
+<ol>
+<li>Name: <strong>UPN Demo - Users Catch-All Filter</strong>
+</li>
+<li>Description: <strong>Catch and filter out all other users who do not have the onmicrosoft.com domain.</strong>
+</li>
+<li>Connected System: <strong>choose your <em>.local</em> domain</strong>
+</li>
+<li>CS Object Type: <strong>user</strong>
+</li>
+<li>Metaverse Object Type: <strong>person</strong>
+</li>
+<li>Link Type: <strong>Join</strong>
+</li>
+<li>Precedence: <strong>99</strong>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Scoping filter</strong>: leave blank</p>
+</li>
+<li>
+<p><strong>Join rules</strong>: leave blank</p>
+</li>
+<li>
+<p><strong>Transformations</strong>:</p>
+<ol>
+<li>Click <strong>Add transformation</strong>
+</li>
+<li>In the transformation, enter the following values for each column, respectively:
+<ul>
+<li>FlowType: <strong>Constant</strong>
+</li>
+<li>Target Attribute: <strong>cloudFiltered</strong>
+</li>
+<li>Source: <strong>True</strong>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+<p>Before you close the <em>Syncrhonization Rules Editor</em>, notice that at the bottom of the window, you are able export rules to a PowerShell script. For any custom rules, this should be part of your disaster recovery plan in case the AD Connect synchronization server fails.  You may now close the editor.</p>
+<h2 id="page_Enable-Password-Writeback">Enable Password Writeback</h2>
+<p>One last thing we want to do is configure the Azure AD Connect tool to writeback password changes to our local Active Directory.  Additionally, remember that, during installation, we elected to not start the synchronization service.  So, we going to do that, as well.</p>
+<ol>
+<li>
+<p>On the desktop of your <strong>ad-connect</strong> VM, you should see a new icon for <strong>Azure AD Connect</strong>. Go ahead and open the tool.</p>
+</li>
+<li>
+<p>Immediately, you'll notice that while the connect tool is open, the service is suspended.</p>
+</li>
+<li>
+<p>Click <strong>Configure</strong>.</p>
+</li>
+<li>
+<p>Select <strong>Customize synchronization options</strong> and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Type in your credentials for Azure and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Type in your credentials for the local Active Directory and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Domain and OU Filtering</strong>, we only want to sync our <strong>Users</strong> group. This will keep Azure AD nice and tidy. So:</p>
+<ol>
+<li>Select <strong>Sync selected domains and OUs</strong>.</li>
+<li>Expand the local domain and uncheck all OUs <em>except</em> <strong>Users</strong>.</li>
+<li>Click <strong>Next</strong>.</li>
+</ol>
+</li>
+<li>
+<p>Check <em>both</em> <strong>Password synchronization</strong> and <strong>Password writeback</strong>. Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p><strong>BEFORE YOU CLICK Configure</strong>, <em>check</em> the box next to <strong>Start the synchronization process when configuration completes</strong>.  This time, we want the synchronization service to begin sync'ing our users.</p>
+</li>
+<li>
+<p>Click <strong>Configure</strong>.</p>
+</li>
+<li>
+<p>Once the configuration has completed, you should receive a confirmation. Click <strong>Exit</strong>.</p>
+</li>
+</ol>
+<h2 id="page_Confirming-a-Successful-Synchronization">Confirming a Successful Synchronization</h2>
+<p>Give the synchronization service a minute to &quot;spin up&quot; and conduct its first sync. Then, let's head over to our Azure portal to confirm that the synchronization was successful.  Once you've reached your Azure portal, perform the following steps.</p>
+<ol>
+<li>
+<p>On the left menu, click on <strong>Azure Active Directory</strong> <img src="../images/azure_ad_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>In the <em>Azure Active Directory</em> blade, click on <strong>Users and groups</strong> <img src="../images/users_and_groups_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>In the <em>Users and groups</em> blade, click on <strong>All users</strong> <img src="../images/all_users_icon.jpg" class="inline"/>.</p>
+</li>
+</ol>
+<p>We should now see all 3 users from our local Active Directory listed here. Question... If our Azure AD grows to a huge list of users, how will we know which users originated in the cloud and which ones are sync'ed from our on-premises Active Directory?</p>
+<p>While we are still on the same blade (viewing our users list), do the following:</p>
+<ol>
+<li>
+<p>In the <em>Actions</em> section, click on <strong>Columns</strong> <img src="../images/columns_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>Check the box next to <strong>Source of authority</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+</li>
+</ol>
+<p>We now see from where our users are originating, whether that on-premises (e.g. Windows Server AD) or the cloud (e.g. Azure Active Directory).</p>
+<p>Remember that any changes made to synchronized users (e.g. Windows Server AD) are replicated back down to our local Active Directory.  However cloud users are <em>not</em> synchronized.</p>
+<h2 id="page_Completing-Password-Writeback">Completing Password Writeback</h2>
+<p>In completing the Azure AD Connect configuration, we enabled password writeback. But, by default, users aren't able to update their passwords in Azure.  We need to enable users to have the ability to update their passwords.</p>
+<ol>
+<li>
+<p>While you are still on the <em>Users and groups</em> blade, click on <strong>Password reset</strong> <img src="../images/password_reset_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>You will see here that self-service password is not enabled for anyone.  Click on <strong>All</strong> and then click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Finally, let's confirm that password writebacks are enabled in Azure. Click on <strong>On-premises integration</strong> <img src="../images/on-premises_integration_icon.jpg" class="inline"/>.</p>
+</li>
+<li>
+<p>From here, you will see that password writebacks are, indeed, enabled along with restricting users from unlocking their accounts without resetting their passwords.</p>
+</li>
+</ol>
+<p>You now have our local Active Directory sync'ing with our Azure AD.</p>
+<h2 id="page_Additional-Notes">Additional Notes</h2>
+<p>Interestingly enough, if you log out of Azure and attempt to login with one of the UPNs that was sync'ed (for example, <strong>jim.smith@<em>&lt;yourcompany&gt;</em>.onmicrosoft.com</strong> with the default password <strong>Pass@word1234</strong>), Azure will require you to set up a secondary authentication method - phone or email - prior to being able to login.</p>
+<p>Also, if you login to your Office 365 trial tenant, you'll see the users from your on-premises Active Directory listed.  All you would need to do at this point is assign them licenses.</p>
+    </div>
+
+            <nav class="hidden-print">
+            <ul class="pager">
+                                    <li class=pager-prev><a href="../Courseware/Prepare_Non-Routable_Domain.html">Previous</a></li>
+                                                    <li class=pager-next><a href="../Courseware/Monitoring_Health.html">Next</a></li>            </ul>
+        </nav>
+    </article>
+        </div>
+        <div class="col-md-2 hidden-print">
+            <div class="article-links" data-spy="affix" data-offset-top="100">
+                <strong>In this article</strong><ol><li><a href="#page_Objective">Objective</a></li><li><a href="#page_Install-Azure-AD-Connect">Install Azure AD Connect</a></li><li><a href="#page_Configure-Synchronization-Filters">Configure Synchronization Filters</a></li><li><a href="#page_Enable-Password-Writeback">Enable Password Writeback</a></li><li><a href="#page_Confirming-a-Successful-Synchronization">Confirming a Successful Synchronization</a></li><li><a href="#page_Completing-Password-Writeback">Completing Password Writeback</a></li><li><a href="#page_Additional-Notes">Additional Notes</a></li></ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="footer" class="container-fluid hidden-print">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-1">
+            
+            </div>
+            <div class="col-md-8" style="text-align:right;">
+            This work is licensed under a Creative Commons Attribution 4.0 International License.
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JS -->
+    
+    <script src="../themes/azure/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="../themes/azure/js/theme.js"></script>
+
+</body>
+</html>
