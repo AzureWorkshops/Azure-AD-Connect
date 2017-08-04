@@ -1,18 +1,43 @@
 {
     "title": "Azure AD Connect",
     "tagline": "Azure Workshops",
+    "lead": "Work with a mock, on-premises Windows 2016 infrastructure connecting it to an Office 365 tenant via AD Connect.",
+    "description": "This workshop centers around helping the user better understand the basics of Azure Active Directory, including Office 365.  By participating in this workshop, users will learn how to connect and synchronize an on-premises Active Directory with Azure AD.  Participants will also gain insight into configuring filtered synchronization and enabling health monitoring for their on-premises AD.",
+    "learn": [
+        "Connecting Office 365 with On-Premises AD",
+        "Azure AD Connect",
+        "Filtering",
+        "Password Synchronization",
+        "Password Writeback",
+        "Azure AD Health"
+    ],
+    "audience": [
+        "CISOs and VPs of Information Security",
+        "CIOs",
+        "IT Managers",
+        "Active Directory and Network Admins"
+    ],
     "author": "Joshua Davis",
     "timezone": "America/New_York",
     "format": "html",
+    "processor": "Processor",
     "html": {
-        "theme": "daux-blue",
+        "theme": "azure-white",
         "float": false,
         "search": false,
         "toggle_code": false,
         "breadcrumbs": true,
+        "breadcrumb_separator": " / ",
         "date_modified": true,
         "twitter": [
-            "a11smiles"
+            "azureworkshops"
+        ],
+        "buttons": [
+            {
+                "name": "PowerPoint",
+                "icon": "fa-file-powerpoint-o",
+                "url": "https://github.com/AzureWorkshops/Azure-AD-Connect/raw/master/AZW_Azure_AD_Connect.pptx"
+            }
         ]
     }
 }

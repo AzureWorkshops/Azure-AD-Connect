@@ -6,12 +6,19 @@ language: php
 php:
   - 7.0
 before_install:
+  - sudo apt-get install pdftk
   - git config credential.helper "store --file=.git/credentials"; echo "https://${GITHUB_OAUTH_TOKEN}:@github.com" > .git/credentials 2>/dev/null
+  - git clone https://github.com/AzureWorkshops/layouts.git ~/.config/layouts
 before_script:
   - composer global require justinwalsh/daux.io
 script: 
   - cd $TRAVIS_BUILD_DIR
+  - cp -R ~/.config/layouts/themes ./themes/
+  - cp -R ~/.config/layouts/daux ./daux/
+  - cp -R ~/.config/layouts/node/* .
+  - npm install
   - ~/.config/composer/vendor/bin/daux
+  - node index.js
   - git add static && git commit -m "documentation check-in ${TRAVIS_COMMIT}"
   - git ls-remote --heads origin gh-pages | grep gh-pages >/dev/null; if [ "$?" == "0" ]; then git push origin :gh-pages &> /dev/null; fi
   - git subtree push --prefix static origin gh-pages
