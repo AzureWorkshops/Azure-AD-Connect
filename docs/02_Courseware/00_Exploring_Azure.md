@@ -14,13 +14,13 @@ Let's start by connecting to the Azure portal and becoming familiar with navigat
   
   4. After authentication is successful, you will be directed to your _Dashboard_. The dashboard is configurable by adding, removing and resizing _tiles_.  Additionally, you can have multiple dashboards depending on your preferences.  You could have different dashboards for resources dedicated to different functions, lines of business, or for operations.
 
-  5. On the left will be your primary navigational menu. You should see a list of favorited services on the menu with descriptions.  (NOTE: The size of your menu may differ from that of others depending on the number of services you have selected as a favorite.) If all you see are icons (no descriptions) on your menu, your menu is currently collapsed.  Click the "hamburger" <img src="../images/hamburger.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/> to expand it. 
+  5. On the left will be your primary navigational menu. You should see a list of favorited services on the menu with descriptions.  (NOTE: The size of your menu may differ from that of others depending on the number of services you have selected as a favorite.) If all you see are icons (no descriptions) on your menu, your menu is currently collapsed.  Click the "hamburger" <img src="../images/hamburger.jpg" class="inline"/> to expand it. 
 
-  6. Pretty close to the top of your menu, you should see **Resource Groups** <img src="../images/resource_groups_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>. Click this option.
+  6. Pretty close to the top of your menu, you should see **Resource Groups** <img src="../images/resource_groups_icon.jpg" class="inline"/>. Click this option.
 
   7. Upon clicking the Resource Groups menu item, a _blade_ will open revealing your created resource groups. In this list, you should find the resource group that the CLI created for you.  It begins with **azworkshops_basicAD_**, followed by a datetime stamp. (NOTE: If you do not see this listed in your available resources groups, ensure that in the second dropdown box above, you have the correct subscription selected.  This should be the same subscription you chose earlier in the CLI.)
 
-  8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" style="margin-top:10px;margin-bottom:10px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;" /> (NOTE: The datetime stamps for your storage accounts will be different.)
+  8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" class="block" /> (NOTE: The datetime stamps for your storage accounts will be different.)
 
 #### Resource Descriptions
 As stated in the previous step and indicated by the preceeding screen clipping, the CLI created 8 different resources in this group for the workshop.  Let's explore these is a little bit more detail.
@@ -34,7 +34,7 @@ Finally, our VMs are connected to each other by utilizing a virtual network. Wit
 #### Viewing Resource Details
 Let's take a moment and view some of the information about the VMs that were created for us.  Let's use the **utility** VM as our example.
 
-  1. Find the **utility** VM <img src="../images/utility_vm.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/> and click on it.  This will expand another blade with our details for the virtual machine.
+  1. Find the **utility** VM <img src="../images/utility_vm.jpg" class="inline"/> and click on it.  This will expand another blade with our details for the virtual machine.
 
   2. In the **Overview** pane, you'll immediately see three sections:
 
@@ -44,14 +44,14 @@ Let's take a moment and view some of the information about the VMs that were cre
 
       3. Metrics - reports various performance metrics regarding your virtual machine (e.g. CPU, network, etc.)
 
-  3. Now, let's look at one more page for some additional details. In the left pane (still on the **utility** blade), approximately half-way down, click on **Properties** <img src="../images/properties_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.  On this blade, you will find additional information like the private IP address and specific resource ID.  While there are other places to find this information, this provides a quick-access method.
+  3. Now, let's look at one more page for some additional details. In the left pane (still on the **utility** blade), approximately half-way down, click on **Properties** <img src="../images/properties_icon.jpg" class="inline"/>.  On this blade, you will find additional information like the private IP address and specific resource ID.  While there are other places to find this information, this provides a quick-access method.
 
 ## Connecting to the Network
 We will now remotely connect to our virtual network.  Remember, exposing our domain controllers via a public IP is unsafe and not recommended.  We've, therefore, created a **utility** virtual machine - sometimes known as a _bastion_ server - that will allow us an entrypoint into our network.
 
-  1. Make sure you have the **utility** VM selected and click on **Overview** <img src="../images/overview_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  1. Make sure you have the **utility** VM selected and click on **Overview** <img src="../images/overview_icon.jpg" class="inline"/>.
 
-  2. In the _Actions_ section, click **Connect** <img src="../images/connect_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>. This will download a Remote Desktop (Protocol) profile to your machine.
+  2. In the _Actions_ section, click **Connect** <img src="../images/connect_icon.jpg" class="inline"/>. This will download a Remote Desktop (Protocol) profile to your machine.
 
   3. Open the RDP profile. (NOTE: You may receive a warning that "The publisher of this remote connection can't be identified." Proceed by clicking on **Connect**.)
 

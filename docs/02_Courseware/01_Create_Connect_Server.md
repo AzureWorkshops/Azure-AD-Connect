@@ -6,13 +6,13 @@ Let's create a standalone AD Connect synchronization server.
 ## Create the Server in Azure
 If you are not currently at dashboard within the Azure portal, go ahead and close all blades.
 
-On the left menu, you should see **Virtual machines** <img src="../images/vm_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>. Click it.
+On the left menu, you should see **Virtual machines** <img src="../images/vm_icon.jpg" class="inline"/>. Click it.
 
-  1. In the actions section of the virtual machines blade, click on <img src="../images/add.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  1. In the actions section of the virtual machines blade, click on <img src="../images/add.jpg" class="inline"/>.
 
   2. In the _Search Compute_ search box, type in **Windows Server 2016 Datacenter**. Press Enter.
 
-  3. In the returned results, choose the option that simply reads <img src="../images/windows_server_2016_datacenter.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>. 
+  3. In the returned results, choose the option that simply reads <img src="../images/windows_server_2016_datacenter.jpg" class="inline"/>. 
   
   4. In the next blade, make sure **Resource Manager** is selected. Then, click _Create_.
 
@@ -62,13 +62,13 @@ We need to add the new machine to our Active Directory domain.  AD Connect must 
 #### Set the Private IP as Static
 Before we add the machine to the domain, we need to set the private IP to static so that Azure's DHCP server doesn't reassign the IP to another machine.
 
-  1. If you are not viewing the details on the newly created machine, click on the **Virtual machines** <img src="../images/vm_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/> menu item, then click on the **ad-connect** machine in the list.
+  1. If you are not viewing the details on the newly created machine, click on the **Virtual machines** <img src="../images/vm_icon.jpg" class="inline"/> menu item, then click on the **ad-connect** machine in the list.
 
-  2. Once you've clicked on the **ad-connect** machine and are viewing the machine's _Overview_ blade, choose **Network interfaces** <img src="../images/network_interfaces_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  2. Once you've clicked on the **ad-connect** machine and are viewing the machine's _Overview_ blade, choose **Network interfaces** <img src="../images/network_interfaces_icon.jpg" class="inline"/>.
 
   3. In the resulting list of network interfaces, choose the single NIC that is listed (e.g. _ad-connectXXX_).
 
-  4. On the network interface menu, click on **IP configurations** <img src="../images/window_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  4. On the network interface menu, click on **IP configurations** <img src="../images/window_icon.jpg" class="inline"/>.
 
   5. The resulting list should only contain a single configuration - _ipconfig1_. You'll notice that under the heading _PRIVATE IP ADDRESS_, the configuration is listed as _Dynamic_. Click on this configuration.
 
@@ -76,14 +76,14 @@ Before we add the machine to the domain, we need to set the private IP to static
 
   7. Click _Save_.
 
-You can now close the two blades (e.g. ad-connectXXX, network interface) to arrive at the main **Network interfaces** <img src="../images/network_interfaces_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/> blade for the **ad-connect** virtual machine.
+You can now close the two blades (e.g. ad-connectXXX, network interface) to arrive at the main **Network interfaces** <img src="../images/network_interfaces_icon.jpg" class="inline"/> blade for the **ad-connect** virtual machine.
 
 #### Connect to the Machine via Remote Desktop
 To connect to the machine remotely, we need to download the Remote Desktop Protocol (RDP) profile.
 
-  1. Click on the **Overview** <img src="../images/overview_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/> to return to the general information for the **ad-connect** virtual machine.
+  1. Click on the **Overview** <img src="../images/overview_icon.jpg" class="inline"/> to return to the general information for the **ad-connect** virtual machine.
 
-  2. In the **Actions** section, click on **Connect** <img src="../images/connect_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>. This will download the RDP profile to your machine. 
+  2. In the **Actions** section, click on **Connect** <img src="../images/connect_icon.jpg" class="inline"/>. This will download the RDP profile to your machine. 
 
   3. Open the profile and accept any warnings.
 
@@ -104,7 +104,7 @@ We've already set the IP on the network interface card (NIC) to be static in Azu
 
   4. In the _Properties_ window for the NIC, scroll down until you see _Internet Protocol Version 4 (TCP/IPv4)_. Highlight it, then click _Properties_.
 
-  5. Enter the values as you see them below. <img src="../images/ad_connect_ip_configuration.jpg" style="margin-top:10px;margin-bottom:10px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;" />
+  5. Enter the values as you see them below. <img src="../images/ad_connect_ip_configuration.jpg" class="block" />
 
   6. Click _OK_, the _Close_. **NOTE:** Clicking _Close_ will cause a brief interruption in your connectivity. That's okay.  The connection should be re-established within a couple of seconds.
 

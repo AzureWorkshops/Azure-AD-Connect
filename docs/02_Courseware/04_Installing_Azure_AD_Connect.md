@@ -134,17 +134,17 @@ One last thing we want to do is configure the Azure AD Connect tool to writeback
 ## Confirming a Successful Synchronization
 Give the synchronization service a minute to "spin up" and conduct its first sync. Then, let's head over to our Azure portal to confirm that the synchronization was successful.  Once you've reached your Azure portal, perform the following steps.
 
-  1. On the left menu, click on **Azure Active Directory** <img src="../images/azure_ad_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  1. On the left menu, click on **Azure Active Directory** <img src="../images/azure_ad_icon.jpg" class="inline"/>.
 
-  2. In the _Azure Active Directory_ blade, click on **Users and groups** <img src="../images/users_and_groups_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  2. In the _Azure Active Directory_ blade, click on **Users and groups** <img src="../images/users_and_groups_icon.jpg" class="inline"/>.
 
-  3. In the _Users and groups_ blade, click on **All users** <img src="../images/all_users_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  3. In the _Users and groups_ blade, click on **All users** <img src="../images/all_users_icon.jpg" class="inline"/>.
 
 We should now see all 3 users from our local Active Directory listed here. Question... If our Azure AD grows to a huge list of users, how will we know which users originated in the cloud and which ones are sync'ed from our on-premises Active Directory?
 
 While we are still on the same blade (viewing our users list), do the following:
 
-  1. In the _Actions_ section, click on **Columns** <img src="../images/columns_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  1. In the _Actions_ section, click on **Columns** <img src="../images/columns_icon.jpg" class="inline"/>.
 
   2. Check the box next to **Source of authority**.
 
@@ -157,11 +157,11 @@ Remember that any changes made to synchronized users (e.g. Windows Server AD) ar
 ## Completing Password Writeback
 In completing the Azure AD Connect configuration, we enabled password writeback. But, by default, users aren't able to update their passwords in Azure.  We need to enable users to have the ability to update their passwords.
 
-  1. While you are still on the _Users and groups_ blade, click on **Password reset** <img src="../images/password_reset_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  1. While you are still on the _Users and groups_ blade, click on **Password reset** <img src="../images/password_reset_icon.jpg" class="inline"/>.
 
   2. You will see here that self-service password is not enabled for anyone.  Click on **All** and then click **Save**.
 
-  3. Finally, let's confirm that password writebacks are enabled in Azure. Click on **On-premises integration** <img src="../images/on-premises_integration_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  3. Finally, let's confirm that password writebacks are enabled in Azure. Click on **On-premises integration** <img src="../images/on-premises_integration_icon.jpg" class="inline"/>.
 
   4. From here, you will see that password writebacks are, indeed, enabled along with restricting users from unlocking their accounts without resetting their passwords.
 

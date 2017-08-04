@@ -35,9 +35,9 @@ Now we're ready to download and install the agent.
 ## View Agent Metrics
 We're now ready to see how our domain controller is functioning. Let's return to Azure to view the reports.
 
-  1. In Azure's left menu, click on **Azure Active Directory** <img src="../images/azure_ad_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  1. In Azure's left menu, click on **Azure Active Directory** <img src="../images/azure_ad_icon.jpg" class="inline"/>.
 
-  2. In the _Azure Active Directory_ blade, click on **Azure AD Connect** <img src="../images/azure_ad_connect_icon.jpg" style="display: inline; margin:0px 5px;box-shadow: 2px 2px 2px #999;border:1px solid #ccc;"/>.
+  2. In the _Azure Active Directory_ blade, click on **Azure AD Connect** <img src="../images/azure_ad_connect_icon.jpg" class="inline"/>.
 
   3. Under **HEALTH AND ANALYTICS**, click on **Azure AD Connect Health** (I know, it's a little obscure).
 
