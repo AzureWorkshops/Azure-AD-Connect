@@ -7,7 +7,7 @@ The objective for this step is to modify our local domain to create a routable d
 ## Add UPN Suffixes
 We will need to remotely connect to **dc1** in order to update Active Directory. Because **dc1** is not accessible from outside of the network, we'll need to connect to it through the **utility** virtual machine.
 
-#### Enable the AD DS Snap-In
+### Enable the AD DS Snap-In
 By default, the machines do not include the Active Directory management snap-in.  For easier management, let's go ahead and enable it.
 
   1. Go ahead and RDP into the **utility** virtual machine.  Once connected to the **utility** VM, RDP into **dc1**.  You can connect to **dc1** by using it's DNS hostname (e.g. "dc1") or it's IP address, 10.3.1.4.
@@ -32,7 +32,7 @@ By default, the machines do not include the Active Directory management snap-in.
 
 This should only take a minute or two to complete.  You can click "Close" when the process has completed.
 
-#### Add Suffix to AD Domains and Trusts
+### Add Suffix to AD Domains and Trusts
 With the snap-in installed, we can easily add the UPN suffix to our Active Directory.
 
   1. If it's not still open, launch _Server Manager_.
@@ -45,7 +45,7 @@ With the snap-in installed, we can easily add the UPN suffix to our Active Direc
 
   5. Click "OK."
 
-#### Change the UPN suffix for existing users
+### Change the UPN suffix for existing users
 Now that we've added an alternative UPN to our domain, we need to update each of our users to use this domain as the _primary_ UPN as that is what Azure AD Connect uses to match identities.
 
   1. Again, if it's not still open, launch _Server Manager_.

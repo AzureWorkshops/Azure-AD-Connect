@@ -35,7 +35,7 @@ Both of our rules are considered _Incoming Sync Rules (ISR)_ because they are de
 
 First, let's begin by opening up the synchronization rules. In the **Start Menu** of the **ad-connect** VM, click on **Sychronization Rules Editor**. You'll see approximately 15-20 default rules.  We're going to add our two rules to the top in order for our rules to take precedence.
 
-#### Users Match Filter
+### Users Match Filter
 This filter will instruct which users we _do_ want to sync with Azure AD.
 
   1. In the _Synchronization Rules Editor_ click on **Add new rule**.
@@ -72,7 +72,7 @@ This filter will instruct which users we _do_ want to sync with Azure AD.
 
   6. Click **Save**.
 
-#### Users Catch-All Filter
+### Users Catch-All Filter
 This filter will instruct which users we _do not_ want to sync with Azure AD.
 
   1. In the _Synchronization Rules Editor_ click on **Add new rule**.

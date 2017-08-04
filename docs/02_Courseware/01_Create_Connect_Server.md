@@ -37,7 +37,7 @@ On the left menu, you should see **Virtual machines** <img src="../images/vm_ico
       3. Settings
 
           * Use managed disks: **No**
-          * Storage account: _&lt;use the same storage account created by the CLI&gt;_ (e.g. _azwdata####_)
+          * Storage account: _&lt;use the same storage account created by the CLI&gt;_ (e.g. _azwdata###_)
           * Network: **vnet**
           * Subnet: **default (10.3.1.0/24)**
           * Public IP address: (click on it & _Create new_)
@@ -48,7 +48,7 @@ On the left menu, you should see **Virtual machines** <img src="../images/vm_ico
           * Availability set: **None**
           * Boot diagnostics: **Enabled**
           * Guest OS diagnostics: **Disabled**
-          * Diagnostics storage account: _&lt;use the same storage account created by the CLI&gt;_ (e.g. _azwdiags####_)
+          * Diagnostics storage account: _&lt;use the same storage account created by the CLI&gt;_ (e.g. _azwdiags###_)
 
       4. Summary (just click _OK_ to continue)
 
@@ -59,7 +59,7 @@ Keep in mind, that we are treating Azure like our on-premises datacenter.  In re
 ## Add Machine to Domain
 We need to add the new machine to our Active Directory domain.  AD Connect must be installed on an AD-joined machine.  
 
-#### Set the Private IP as Static
+### Set the Private IP as Static
 Before we add the machine to the domain, we need to set the private IP to static so that Azure's DHCP server doesn't reassign the IP to another machine.
 
   1. If you are not viewing the details on the newly created machine, click on the **Virtual machines** <img src="../images/vm_icon.jpg" class="inline"/> menu item, then click on the **ad-connect** machine in the list.
@@ -78,7 +78,7 @@ Before we add the machine to the domain, we need to set the private IP to static
 
 You can now close the two blades (e.g. ad-connectXXX, network interface) to arrive at the main **Network interfaces** <img src="../images/network_interfaces_icon.jpg" class="inline"/> blade for the **ad-connect** virtual machine.
 
-#### Connect to the Machine via Remote Desktop
+### Connect to the Machine via Remote Desktop
 To connect to the machine remotely, we need to download the Remote Desktop Protocol (RDP) profile.
 
   1. Click on the **Overview** <img src="../images/overview_icon.jpg" class="inline"/> to return to the general information for the **ad-connect** virtual machine.
@@ -91,7 +91,7 @@ To connect to the machine remotely, we need to download the Remote Desktop Proto
 
   5. Again, accept any warnings.
 
-#### Add the Machine to the Domain
+### Add the Machine to the Domain
 When you initially connect to the machine, you will see the _Server Manager_ dashboard.
 
 We've already set the IP on the network interface card (NIC) to be static in Azure.  Technically speaking, we've created a _reservation_ in Azure's DHCP server for the NIC in our virtual network. However, before we add the machine to the domain, it is best if we set the IP as static within Windows Server's TCP/IP configuration.

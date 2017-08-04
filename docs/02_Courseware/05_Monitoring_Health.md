@@ -4,7 +4,7 @@ We are going to conclude this workshop with enabling monitoring on our Active Di
 ## Install the Agent
 In order to see reports for our domain services, we need to install the Azure AD Connect Health Agent for AD DS onto our domain controller.
 
-#### Disable IE ESC
+### Disable IE ESC
 By default, Internet Explorer Enhanced Security Configuration is enabled which will prevent us from downloading anything.  We need to disable this. (**NOTE:** In production, you would typically not do this.  In production, you would leave IE ESC enabled and copy the downloaded agent via RDP onto the machine.  However, since this is a workshop, we'll make some concessions.)
 
   1. If you're not still connected to the **dc1** VM, go ahead and do that now. As a reminder, you will need to do so _through_ the **utility** machine.
@@ -17,7 +17,7 @@ By default, Internet Explorer Enhanced Security Configuration is enabled which w
 
   5. In the _Internet Explorer Enhanced Security Configuration_ dialog, choose **Off** for both, Administrators and Users. Then, click _OK_.
 
-#### Download and Install the Agent
+### Download and Install the Agent
 Now we're ready to download and install the agent.
 
   1. On **dc1**, open a web browser and go to [http://go.microsoft.com/fwlink/?LinkID=820540](http://go.microsoft.com/fwlink/?LinkID=820540). This will automatically download the agent.

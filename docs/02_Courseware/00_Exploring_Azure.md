@@ -22,7 +22,7 @@ Let's start by connecting to the Azure portal and becoming familiar with navigat
 
   8. Clicking on this resource group with expand another blade listing all of the resources created by the CLI.  What you should see listed are two storage accounts, two virtual machines, two network interface cards, one public IP address and one virtual network. <img src="../images/azworkshops_basicAD_resource_list.jpg" class="block" /> (NOTE: The datetime stamps for your storage accounts will be different.)
 
-#### Resource Descriptions
+### Resource Descriptions
 As stated in the previous step and indicated by the preceeding screen clipping, the CLI created 8 different resources in this group for the workshop.  Let's explore these is a little bit more detail.
 
 The first two items listed are storage accounts - one for the virtual machine disk drives and another to store diagnostic logs from the VMs. Storage accounts must be globally unique across Azure.  Therefore, we've appended datetime stamps to the end of our storage account names in order to prevent collision.
@@ -31,7 +31,7 @@ Next, you will see two virtual machines - **dc1** and **utility** - listed.  **d
 
 Finally, our VMs are connected to each other by utilizing a virtual network. With the exception of storage and a few other resources in Azure, a virtual network is required.
 
-#### Viewing Resource Details
+### Viewing Resource Details
 Let's take a moment and view some of the information about the VMs that were created for us.  Let's use the **utility** VM as our example.
 
   1. Find the **utility** VM <img src="../images/utility_vm.jpg" class="inline"/> and click on it.  This will expand another blade with our details for the virtual machine.
